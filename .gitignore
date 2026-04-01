@@ -1,0 +1,55 @@
+# Python & Odoo
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Odoo специфичные файлы
+*.log
+filestore/
+.env
+.venv
+*.dump
+*.sql
+*.csv.imported
+temp/
+.coverage
+.pytest_cache/
+setup/
+
+# Файлы конфигурации
+*.conf
+.odoorc
+odoo.cfg
+.odoorpc
+*.rc
+
+# IDE файлы
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.project
+.pydevproject
+.settings/
+.DS_Store
+*.code-workspac
+CLAUDE.md
+.claude/
