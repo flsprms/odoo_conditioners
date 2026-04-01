@@ -9,7 +9,7 @@ from .material_qty_formula import eval_material_qty_formula
 class CrmLeadMaterialLine(models.Model):
     _name = "crm.lead.material.line"
     _description = "CRM Lead Material Line"
-    _order = "sequence, id"
+    _order = "id"
 
     sequence = fields.Integer(default=10)
     lead_id = fields.Many2one(

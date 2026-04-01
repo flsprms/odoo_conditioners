@@ -16,7 +16,7 @@
                     <field name="material_picking_id" widget="statinfo" string="Mount delivery" />
                 </button>
             </xpath>
-            <xpath expr="//notebook" position="inside">
+            <xpath expr="//notebook/page[@name='internal_notes']" position="before">
                 <page string="Materials" name="crm_materials">
                     <group>
                         <group>
@@ -68,16 +68,16 @@
                         name="material_line_ids"
                         nolabel="1"
                         context="{'default_lead_id': id}"
+                        order="id"
                     >
                         <list
                             editable="bottom"
-                            default_order="sequence, id"
+                            default_order="id asc"
                         >
-                            <field name="sequence" widget="handle" />
-                            <field name="product_id" />
-                            <field name="name" optional="show" />
+                            <field name="sequence" optional="hide" />
+                            <field name="product_id" width="400" />
                             <field name="product_uom_qty" />
-                            <field name="qty_formula" optional="show" />
+                            <field name="qty_formula" optional="hide" />
                             <field
                                 name="formula_base_product_id"
                                 optional="hide"
