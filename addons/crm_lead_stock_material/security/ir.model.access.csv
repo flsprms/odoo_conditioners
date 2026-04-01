@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_crm_lead_material_line_user,crm.lead.material.line.user,model_crm_lead_material_line,sales_team.group_sale_salesman,1,1,1,1
+access_crm_lead_material_line_manager,crm.lead.material.line.manager,model_crm_lead_material_line,sales_team.group_sale_manager,1,1,1,1
+access_crm_material_kit_user,crm.material.kit.user,model_crm_material_kit,sales_team.group_sale_salesman,1,1,1,1
+access_crm_material_kit_manager,crm.material.kit.manager,model_crm_material_kit,sales_team.group_sale_manager,1,1,1,1
+access_crm_material_kit_line_user,crm.material.kit.line.user,model_crm_material_kit_line,sales_team.group_sale_salesman,1,1,1,1
+access_crm_material_kit_line_manager,crm.material.kit.line.manager,model_crm_material_kit_line,sales_team.group_sale_manager,1,1,1,1

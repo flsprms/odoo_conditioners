@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="crm_lead_view_form_inherit_stock_material" model="ir.ui.view">
+        <field name="name">crm.lead.form.stock.material</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_lead_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button
+                    name="action_open_material_picking"
+                    type="object"
+                    class="oe_stat_button"
+                    icon="fa-truck"
+                    invisible="not material_picking_id"
+                >
+                    <field name="material_picking_id" widget="statinfo" string="Mount delivery" />
+                </button>
+            </xpath>
+            <xpath expr="//notebook" position="inside">
+                <page string="Materials" name="crm_materials">
+                    <group>
+                        <group>
+                            <field
+                                name="material_kit_id"
+                                options="{'no_create': True}"
+                            />
+                            <field
+                                name="material_kit_extra_ids"
+                                widget="many2many_tags"
+                                options="{'no_create': True}"
+                                domain="[('id', '!=', material_kit_id)]"
+                            />
+                            <field
+                                name="material_warehouse_id"
+                                options="{'no_create': True}"
+                                groups="stock.group_stock_multi_warehouses"
+                            />
+                        </group>
+                        <group>
+                            <field name="material_picking_id" readonly="1" />
+                        </group>
+                    </group>
+                    <group string="Material quantities">
+                        <field name="material_formula_x" />
+                        <field
+                            name="material_base_product_id"
+                            options="{'no_create': True}"
+                        />
+                    </group>
+                    <group>
+                        <button
+                            name="action_create_or_sync_material_picking"
+                            string="Create / update material delivery"
+                            type="object"
+                            class="btn-primary mb-2"
+                            invisible="material_picking_id and material_picking_state != 'draft'"
+                            help="Creates a draft outgoing transfer (warehouse → customers). Stock decreases after you validate the transfer in Inventory."
+                        />
+                        <button
+                            name="action_open_material_picking"
+                            string="Open delivery"
+                            type="object"
+                            class="btn-secondary mb-2"
+                            invisible="not material_picking_id"
+                        />
+                    </group>
+                    <field
+                        name="material_line_ids"
+                        nolabel="1"
+                        context="{'default_lead_id': id}"
+                    >
+                        <list
+                            editable="bottom"
+                            default_order="sequence, id"
+                        >
+                            <field name="sequence" widget="handle" />
+                            <field name="product_id" />
+                            <field name="name" optional="show" />
+                            <field name="product_uom_qty" />
+                            <field name="qty_formula" optional="show" />
+                            <field
+                                name="formula_base_product_id"
+                                optional="hide"
+                                options="{'no_create': True}"
+                            />
+                            <field
+                                name="product_uom_id"
+                                options="{'no_open': True, 'no_create': True}"
+                                groups="uom.group_uom"
+                            />
+                            <field
+                                name="warehouse_id"
+                                optional="show"
+                                groups="stock.group_stock_multi_warehouses"
+                            />
+                            <field name="qty_available" optional="show" />
+                            <field
+                                name="kit_template_line_id"
+                                optional="hide"
+                                readonly="1"
+                            />
+                            <field name="move_id" optional="hide" />
+                        </list>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

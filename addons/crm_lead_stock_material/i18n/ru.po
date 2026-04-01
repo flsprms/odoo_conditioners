@@ -1,0 +1,481 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* crm_lead_stock_material
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-03-26 12:00+0000\n"
+"PO-Revision-Date: 2026-03-26 12:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: Russian\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#. module: crm_lead_stock_material
+#: model:ir.model.fields,help:crm_lead_stock_material.field_crm_lead__material_picking_state
+msgid ""
+" * Draft: The transfer is not confirmed yet. Reservation doesn't apply.\n"
+" * Waiting another operation: This transfer is waiting for another operation before being ready.\n"
+" * Waiting: The transfer is waiting for the availability of some products.\n"
+"(a) The shipping policy is \"As soon as possible\": no product could be reserved.\n"
+"(b) The shipping policy is \"When all products are ready\": not all the products could be reserved.\n"
+" * Ready: The transfer is ready to be processed.\n"
+"(a) The shipping policy is \"As soon as possible\": at least one product has been reserved.\n"
+"(b) The shipping policy is \"When all products are ready\": all product have been reserved.\n"
+" * Done: The transfer has been processed.\n"
+" * Cancelled: The transfer has been cancelled."
+msgstr ""
+" • Черновик: перемещение ещё не подтверждено. Резервирование не применяется.\n"
+" • Ожидает другую операцию: это перемещение ждёт завершения другой операции.\n"
+" • В ожидании: не хватает товаров на складе.\n"
+"(а) Политика отгрузки «Как можно скорее»: ни один товар не зарезервирован.\n"
+"(б) Политика «Когда все товары готовы»: зарезервированы не все позиции.\n"
+" • Готово: перемещение можно провести.\n"
+"(а) «Как можно скорее»: зарезервирован хотя бы один товар.\n"
+"(б) «Когда все готовы»: все товары зарезервированы.\n"
+" • Выполнено: перемещение проведено.\n"
+" • Отменено: перемещение отменено."
+
+#. module: crm_lead_stock_material
+#: model:ir.model.fields,field_description:crm_lead_stock_material.field_crm_material_kit__active
+msgid "Active"
+msgstr "Активен"
+
+#. module: crm_lead_stock_material
+#. odoo-python
+#: code:addons/crm_lead_stock_material/models/crm_lead.py:0
+msgid "Add at least one material line."
+msgstr "Добавьте хотя бы одну строку материалов."
+
+#. module: crm_lead_stock_material
+#: model_terms:ir.ui.view,arch_db:crm_lead_stock_material.view_crm_material_kit_form
+msgid "Archived"
+msgstr "В архиве"
+
+#. module: crm_lead_stock_material
+#: model:ir.model.fields,field_description:crm_lead_stock_material.field_stock_picking__crm_lead_id
+msgid "CRM Lead"
+msgstr "Лид CRM"
+
+#. module: crm_lead_stock_material
+#: model:ir.model,name:crm_lead_stock_material.model_crm_lead_material_line
+msgid "CRM Lead Material Line"
+msgstr "Строка материалов лида CRM"
+
+#. module: crm_lead_stock_material
+#: model:ir.model,name:crm_lead_stock_material.model_crm_material_kit
+msgid "CRM Material Kit"
+msgstr "Комплект материалов CRM"
+
+#. module: crm_lead_stock_material
+#: model:ir.model,name:crm_lead_stock_material.model_crm_material_kit_line
+msgid "CRM Material Kit Line"
+msgstr "Строка комплекта материалов"
+
+#. module: crm_lead_stock_material
+#: model:ir.model.fields,field_description:crm_lead_stock_material.field_crm_material_kit__company_id
+msgid "Company"
+msgstr "Компания"
+
+#. module: crm_lead_stock_material
+#: model_terms:ir.ui.view,arch_db:crm_lead_stock_material.view_crm_material_kit_form
+msgid "Components"
+msgstr "Состав"
+
+#. module: crm_lead_stock_material
+#: model_terms:ir.ui.view,arch_db:crm_lead_stock_material.crm_lead_view_form_inherit_stock_material
+msgid "Create / update material delivery"
+msgstr "Создать / обновить отгрузку материалов"
+
+#. module: crm_lead_stock_material
+#: model:ir.model.fields,field_description:crm_lead_stock_material.field_crm_lead_material_line__create_uid
+#: model:ir.model.fields,field_description:crm_lead_stock_material.field_crm_material_kit__create_uid
+#: model:ir.model.fields,field_description:crm_lead_stock_material.field_crm_material_kit_line__create_uid
+msgid "Created by"
+msgstr "Кем создано"
+
+#. module: crm_lead_stock_material
+#: model:ir.model.fields,field_description:crm_lead_stock_material.field_crm_lead_material_line__create_date
+#: model:ir.model.fields,field_description:crm_lead_stock_material.field_crm_material_kit__create_date
+#: model:ir.model.fields,field_description:crm_lead_stock_material.field_crm_material_kit_line__create_date
+msgid "Created on"
+msgstr "Когда создано"
+
+#. module: crm_lead_stock_material
+#: model_terms:ir.ui.view,arch_db:crm_lead_stock_material.crm_lead_view_form_inherit_stock_material
+msgid ""
+"Creates a draft outgoing transfer (warehouse → customers). Stock decreases "
+"after you validate the transfer in Inventory."
+msgstr ""
+"Создаёт черновик исходящего перемещения (склад → покупатели). Списание со "
+"склада выполняется после проведения перемещения в приложении «Склад»."
+
+#. module: crm_lead_stock_material
+#: model:ir.model.fields,field_description:crm_lead_stock_material.field_crm_material_kit__is_default
+msgid "Default on new leads"
+msgstr "По умолчанию для новых лидов"
+
+#. module: crm_lead_stock_material
+#: model:ir.model.fields,field_description:crm_lead_stock_material.field_crm_lead__material_warehouse_id
+msgid "Default warehouse"
+msgstr "Склад по умолчанию"
+
+#. module: crm_lead_stock_material
+#: model_terms:ir.actions.act_window,help:crm_lead_stock_material.action_crm_material_kit
+msgid ""
+"Define reusable material lists for opportunities (e.g. standard mounting "
+"set)."
+msgstr ""
+"Задайте повторно используемые списки материалов для сделок (например, "
+"стандартный комплект для монтажа)."
+
+#. module: crm_lead_stock_material
+#: model:ir.model.fields,field_description:crm_lead_stock_material.field_crm_lead__material_picking_state
+msgid "Delivery state"
+msgstr "Состояние отгрузки"
+
+#. module: crm_lead_stock_material
+#: model:ir.model.fields,field_description:crm_lead_stock_material.field_crm_lead_material_line__name
+#: model:ir.model.fields,field_description:crm_lead_stock_material.field_crm_material_kit_line__name
+msgid "Description"
+msgstr "Описание"
+
+#. module: crm_lead_stock_material
+#: model:ir.model.fields,field_description:crm_lead_stock_material.field_crm_lead_material_line__display_name
+#: model:ir.model.fields,field_description:crm_lead_stock_material.field_crm_material_kit__display_name
+#: model:ir.model.fields,field_description:crm_lead_stock_material.field_crm_material_kit_line__display_name
+msgid "Display Name"
+msgstr "Отображаемое имя"
+
+#. module: crm_lead_stock_material
+#: model:ir.model.fields,field_description:crm_lead_stock_material.field_crm_lead_material_line__id
+#: model:ir.model.fields,field_description:crm_lead_stock_material.field_crm_material_kit__id
+#: model:ir.model.fields,field_description:crm_lead_stock_material.field_crm_material_kit_line__id
+msgid "ID"
+msgstr "ID"
+
+#. module: crm_lead_stock_material
+#: model:ir.model.fields,help:crm_lead_stock_material.field_crm_lead_material_line__warehouse_id
+msgid "If set, on-hand quantity is computed for this warehouse only."
+msgstr ""
+"Если указано, остаток «в наличии» считается только по этому складу."
+
+#. module: crm_lead_stock_material
+#: model:ir.model.fields,field_description:crm_lead_stock_material.field_crm_material_kit_line__kit_id
+msgid "Kit"
+msgstr "Комплект"
+
+#. module: crm_lead_stock_material
+#: model:ir.model.fields,field_description:crm_lead_stock_material.field_crm_lead_material_line__kit_template_line_id
+msgid "Kit line"
+msgstr "Строка комплекта"
+
+#. module: crm_lead_stock_material
+#: model:ir.model.fields,field_description:crm_lead_stock_material.field_crm_lead_material_line__write_uid
+#: model:ir.model.fields,field_description:crm_lead_stock_material.field_crm_material_kit__write_uid
+#: model:ir.model.fields,field_description:crm_lead_stock_material.field_crm_material_kit_line__write_uid
+msgid "Last Updated by"
+msgstr "Кем обновлено"
+
+#. module: crm_lead_stock_material
+#: model:ir.model.fields,field_description:crm_lead_stock_material.field_crm_lead_material_line__write_date
+#: model:ir.model.fields,field_description:crm_lead_stock_material.field_crm_material_kit__write_date
+#: model:ir.model.fields,field_description:crm_lead_stock_material.field_crm_material_kit_line__write_date
+msgid "Last Updated on"
+msgstr "Когда обновлено"
+
+#. module: crm_lead_stock_material
+#: model:ir.model,name:crm_lead_stock_material.model_crm_lead
+msgid "Lead/Opportunity"
+msgstr "Лид/Сделка"
+
+#. module: crm_lead_stock_material
+#. odoo-python
+#: code:addons/crm_lead_stock_material/models/crm_material_kit.py:0
+msgid "Line"
+msgstr "Строка"
+
+#. module: crm_lead_stock_material
+#: model:ir.model.fields,field_description:crm_lead_stock_material.field_crm_material_kit__line_ids
+msgid "Lines"
+msgstr "Строки"
+
+#. module: crm_lead_stock_material
+#: model_terms:ir.ui.view,arch_db:crm_lead_stock_material.view_crm_material_kit_form
+msgid "Material Kit"
+msgstr "Комплект материалов"
+
+#. module: crm_lead_stock_material
+#: model:ir.actions.act_window,name:crm_lead_stock_material.action_crm_material_kit
+#: model:ir.ui.menu,name:crm_lead_stock_material.menu_crm_material_kit
+#: model_terms:ir.ui.view,arch_db:crm_lead_stock_material.view_crm_material_kit_tree
+msgid "Material Kits"
+msgstr "Комплекты материалов"
+
+#. module: crm_lead_stock_material
+#: model:ir.model.fields,field_description:crm_lead_stock_material.field_crm_lead__material_picking_id
+msgid "Material delivery"
+msgstr "Отгрузка материалов"
+
+#. module: crm_lead_stock_material
+#: model:ir.model.fields,field_description:crm_lead_stock_material.field_crm_lead__material_kit_id
+msgid "Material kit"
+msgstr "Комплект материалов"
+
+#. module: crm_lead_stock_material
+#: model:ir.model.fields,field_description:crm_lead_stock_material.field_crm_lead__material_line_ids
+#: model_terms:ir.ui.view,arch_db:crm_lead_stock_material.crm_lead_view_form_inherit_stock_material
+msgid "Materials"
+msgstr "Материалы"
+
+#. module: crm_lead_stock_material
+#: model_terms:ir.ui.view,arch_db:crm_lead_stock_material.crm_lead_view_form_inherit_stock_material
+msgid "Mount delivery"
+msgstr "Отгрузка монтажа"
+
+#. module: crm_lead_stock_material
+#: model:ir.model.fields,field_description:crm_lead_stock_material.field_crm_material_kit__name
+msgid "Name"
+msgstr "Название"
+
+#. module: crm_lead_stock_material
+#. odoo-python
+#: code:addons/crm_lead_stock_material/models/crm_lead.py:0
+msgid "No material delivery has been created yet."
+msgstr "Отгрузка материалов ещё не создана."
+
+#. module: crm_lead_stock_material
+#: model:ir.model.fields,field_description:crm_lead_stock_material.field_crm_lead_material_line__qty_available
+msgid "On Hand"
+msgstr "В наличии"
+
+#. module: crm_lead_stock_material
+#: model:ir.model.fields,help:crm_lead_stock_material.field_crm_material_kit__is_default
+msgid "Only one default kit per company; it is pre-selected on new CRM leads."
+msgstr ""
+"Только один комплект по умолчанию на компанию; он подставляется в новых "
+"лидах CRM."
+
+#. module: crm_lead_stock_material
+#: model_terms:ir.ui.view,arch_db:crm_lead_stock_material.crm_lead_view_form_inherit_stock_material
+msgid "Open delivery"
+msgstr "Открыть отгрузку"
+
+#. module: crm_lead_stock_material
+#: model:ir.model.fields,field_description:crm_lead_stock_material.field_crm_lead_material_line__lead_id
+msgid "Opportunity"
+msgstr "Сделка"
+
+#. module: crm_lead_stock_material
+#: model:ir.model.fields,field_description:crm_lead_stock_material.field_crm_lead_material_line__product_id
+#: model:ir.model.fields,field_description:crm_lead_stock_material.field_crm_material_kit_line__product_id
+msgid "Product"
+msgstr "Товар"
+
+#. module: crm_lead_stock_material
+#: model:ir.model.fields,field_description:crm_lead_stock_material.field_crm_lead_material_line__product_uom_qty
+#: model:ir.model.fields,field_description:crm_lead_stock_material.field_crm_material_kit_line__product_uom_qty
+msgid "Quantity"
+msgstr "Количество"
+
+#. module: crm_lead_stock_material
+#: model:ir.model.fields,help:crm_lead_stock_material.field_crm_lead__material_kit_id
+msgid ""
+"Replaces only rows from this kit. Manual rows and additional kits stay. "
+"Clearing removes rows from this kit only."
+msgstr ""
+"Заменяет только строки этого комплекта. Ручные строки и дополнительные комплекты "
+"сохраняются. Снятие комплекта удаляет только его строки."
+
+#. module: crm_lead_stock_material
+#: model:ir.model.fields,field_description:crm_lead_stock_material.field_crm_lead_material_line__sequence
+#: model:ir.model.fields,field_description:crm_lead_stock_material.field_crm_material_kit__sequence
+#: model:ir.model.fields,field_description:crm_lead_stock_material.field_crm_material_kit_line__sequence
+msgid "Sequence"
+msgstr "Порядок"
+
+#. module: crm_lead_stock_material
+#: model:ir.model.fields,help:crm_lead_stock_material.field_crm_lead_material_line__kit_template_line_id
+msgid ""
+"Set when this row was generated from a material kit. Empty means a manual "
+"line."
+msgstr ""
+"Заполняется, если строка сформирована из комплекта материалов. Пусто — строка "
+"добавлена вручную."
+
+#. module: crm_lead_stock_material
+#: model:ir.model.fields,field_description:crm_lead_stock_material.field_crm_lead_material_line__move_id
+msgid "Stock move"
+msgstr "Движение запасов"
+
+#. module: crm_lead_stock_material
+#. odoo-python
+#: code:addons/crm_lead_stock_material/models/crm_lead.py:0
+msgid ""
+"The delivery %(name)s is no longer in draft. Changing material lines is not "
+"allowed. Cancel the delivery or adjust stock from Inventory."
+msgstr ""
+"Отгрузка «%(name)s» не в состоянии черновика. Изменять строки материалов "
+"нельзя. Отмените отгрузку или скорректируйте остатки в приложении «Склад»."
+
+#. module: crm_lead_stock_material
+#. odoo-python
+#: code:addons/crm_lead_stock_material/models/crm_lead.py:0
+msgid "There is no warehouse for company %s."
+msgstr "Для компании «%s» не настроен склад."
+
+#. module: crm_lead_stock_material
+#: model:ir.model,name:crm_lead_stock_material.model_stock_picking
+msgid "Transfer"
+msgstr "Перемещение"
+
+#. module: crm_lead_stock_material
+#: model:ir.model.fields,field_description:crm_lead_stock_material.field_crm_lead_material_line__product_uom_id
+#: model:ir.model.fields,field_description:crm_lead_stock_material.field_crm_material_kit_line__product_uom_id
+msgid "Unit of Measure"
+msgstr "Единица измерения"
+
+#. module: crm_lead_stock_material
+#: model:ir.model.fields,help:crm_lead_stock_material.field_crm_lead__material_warehouse_id
+msgid "Used as stock location when a material line has no warehouse."
+msgstr ""
+"Используется как склад/локация отгрузки, если в строке материала склад не "
+"указан."
+
+#. module: crm_lead_stock_material
+#: model:ir.model.fields,field_description:crm_lead_stock_material.field_crm_lead_material_line__warehouse_id
+msgid "Warehouse"
+msgstr "Склад"
+
+#. module: crm_lead_stock_material
+#: model:ir.model.fields,field_description:crm_lead_stock_material.field_crm_lead__material_formula_x
+msgid "Base quantity (x)"
+msgstr "Базовое количество (x)"
+
+#. module: crm_lead_stock_material
+#: model:ir.model.fields,help:crm_lead_stock_material.field_crm_lead__material_formula_x
+msgid "Variable x in material line formulas (shown above the materials list)."
+msgstr ""
+"Переменная x в формулах строк материалов (поле над списком материалов)."
+
+#. module: crm_lead_stock_material
+#: model:ir.model.fields,field_description:crm_lead_stock_material.field_crm_lead__material_base_product_id
+msgid "Main product (for x)"
+msgstr "Основной товар (для x)"
+
+#. module: crm_lead_stock_material
+#: model:ir.model.fields,help:crm_lead_stock_material.field_crm_lead__material_base_product_id
+msgid "Optional: which product the quantity x refers to."
+msgstr "По желанию: к какому товару относится количество x."
+
+#. module: crm_lead_stock_material
+#: model:ir.model.fields,field_description:crm_lead_stock_material.field_crm_lead_material_line__qty_formula
+#: model:ir.model.fields,field_description:crm_lead_stock_material.field_crm_material_kit_line__qty_formula
+msgid "Quantity formula"
+msgstr "Формула количества"
+
+#. module: crm_lead_stock_material
+#: model:ir.model.fields,help:crm_lead_stock_material.field_crm_lead_material_line__qty_formula
+msgid ""
+"Optional. x = base quantity on the lead. If empty or invalid, kit/base "
+"quantity is used."
+msgstr ""
+"Необязательно. x — базовое количество на лиде. Если пусто или ошибка в "
+"формуле, берётся количество из комплекта/строки."
+
+#. module: crm_lead_stock_material
+#: model:ir.model.fields,help:crm_lead_stock_material.field_crm_material_kit_line__qty_formula
+msgid ""
+"Optional. Variable x is the base quantity on the CRM lead. Example: x*2+1 or "
+"round(x*1.5, 0). Operators: + - * /. Functions: round, ceil, floor, abs, "
+"int, float. If empty or invalid, the quantity above is used."
+msgstr ""
+"Необязательно. Переменная x — базовое количество на лиде CRM. Примеры: x*2+1 "
+"или round(x*1.5, 0). Операции: + - * /. Функции: round, ceil, floor, abs, int, "
+"float. Если пусто или ошибка — используется количество выше."
+
+#. module: crm_lead_stock_material
+#: model:ir.model.fields,field_description:crm_lead_stock_material.field_crm_lead_material_line__formula_base_product_id
+#: model:ir.model.fields,field_description:crm_lead_stock_material.field_crm_material_kit_line__formula_base_product_id
+msgid "Main product (formula)"
+msgstr "Основной товар (формула)"
+
+#. module: crm_lead_stock_material
+#: model:ir.model.fields,help:crm_lead_stock_material.field_crm_lead_material_line__formula_base_product_id
+msgid "Optional; copied from the kit line."
+msgstr "По желанию; копируется из строки комплекта."
+
+#. module: crm_lead_stock_material
+#: model:ir.model.fields,help:crm_lead_stock_material.field_crm_material_kit_line__formula_base_product_id
+msgid ""
+"Optional reference to the main product the formula relates to "
+"(informational; x is entered on the lead)."
+msgstr ""
+"По желанию: к какому основному товару относится формула (справочно; x вводится "
+"на лиде)."
+
+#. module: crm_lead_stock_material
+#: model:ir.model.fields,help:crm_lead_stock_material.field_crm_material_kit_line__product_uom_qty
+msgid "Fallback quantity when the formula is empty or invalid."
+msgstr "Запасное количество, если формула пустая или неверная."
+
+#. module: crm_lead_stock_material
+#: model_terms:ir.ui.view,arch_db:crm_lead_stock_material.crm_lead_view_form_inherit_stock_material
+msgid "Material quantities"
+msgstr "Количества материалов"
+
+#. module: crm_lead_stock_material
+#: model:ir.model.fields,field_description:crm_lead_stock_material.field_crm_material_kit__default_material_formula_x
+msgid "Default base quantity (x)"
+msgstr "Базовое количество (x) по умолчанию"
+
+#. module: crm_lead_stock_material
+#: model:ir.model.fields,help:crm_lead_stock_material.field_crm_material_kit__default_material_formula_x
+msgid ""
+"Pre-filled on the lead when this kit is selected; used as x in line formulas."
+msgstr ""
+"Подставляется на лиде при выборе этого комплекта; используется как x в формулах "
+"строк."
+
+#. module: crm_lead_stock_material
+#: model:ir.model.fields,field_description:crm_lead_stock_material.field_crm_material_kit__default_material_base_product_id
+msgid "Default main product (for x)"
+msgstr "Основной товар (для x) по умолчанию"
+
+#. module: crm_lead_stock_material
+#: model:ir.model.fields,help:crm_lead_stock_material.field_crm_material_kit__default_material_base_product_id
+msgid ""
+"Pre-filled on the lead when this kit is selected (which product x refers to)."
+msgstr ""
+"Подставляется на лиде при выборе комплекта (к какому товару относится x)."
+
+#. module: crm_lead_stock_material
+#: model_terms:ir.ui.view,arch_db:crm_lead_stock_material.view_crm_material_kit_form
+msgid "Default for leads"
+msgstr "Значения по умолчанию для лидов"
+
+#. module: crm_lead_stock_material
+#: model:ir.model.fields,field_description:crm_lead_stock_material.field_crm_lead__material_kit_extra_ids
+msgid "Additional kits"
+msgstr "Дополнительные комплекты"
+
+#. module: crm_lead_stock_material
+#: model:ir.model.fields,help:crm_lead_stock_material.field_crm_lead__material_kit_extra_ids
+msgid ""
+"Adds kit lines to the materials list when you add a tag. Removing a tag does "
+"not remove lines (delete rows manually if needed)."
+msgstr ""
+"При добавлении тега строки комплекта попадают в список материалов. Снятие "
+"тега не удаляет строки; при необходимости удалите их вручную."
+
+#. module: crm_lead_stock_material
+#. odoo-python
+#: code:addons/crm_lead_stock_material/models/crm_lead.py:0
+msgid "The main material kit cannot be selected as an additional kit."
+msgstr "Основной комплект материалов нельзя выбирать в дополнительных комплектах."
