@@ -11,6 +11,11 @@ class CrmLeadMaterialLine(models.Model):
     _description = "CRM Lead Material Line"
     _order = "id"
 
+    def _crm_invalidate_calendar_for_leads(self):
+        leads = self.mapped("lead_id")
+        if leads:
+            self.env["calendar.event"]._crm_invalidate_lead_events_display(leads.ids)
+
     sequence = fields.Integer(default=10)
     lead_id = fields.Many2one(
         "crm.lead",
@@ -170,6 +175,7 @@ class CrmLeadMaterialLine(models.Model):
                 )
             prepared.append(vals)
         lines = super().create(prepared)
+        lines._crm_invalidate_calendar_for_leads()
         if not self.env.context.get("skip_material_line_stock_sync"):
             for lead in lines.mapped("lead_id"):
                 pick = lead.material_picking_id
@@ -195,13 +201,16 @@ class CrmLeadMaterialLine(models.Model):
                     dict(vals, product_uom_qty=new_qty)
                 )
             if self.env.context.get("skip_material_line_stock_sync"):
+                self._crm_invalidate_calendar_for_leads()
                 return True
             for lead in self.mapped("lead_id"):
                 pick = lead.material_picking_id
                 if pick and pick.state == "draft":
                     lead.sudo()._sync_material_picking_moves()
+            self._crm_invalidate_calendar_for_leads()
             return True
         res = super().write(vals)
+        self._crm_invalidate_calendar_for_leads()
         if self.env.context.get("skip_material_line_stock_sync"):
             return res
         for lead in self.mapped("lead_id"):
@@ -211,10 +220,11 @@ class CrmLeadMaterialLine(models.Model):
         return res
 
     def unlink(self):
-        if self.env.context.get("skip_material_line_stock_sync"):
-            return super().unlink()
         leads = self.mapped("lead_id")
         res = super().unlink()
+        self.env["calendar.event"]._crm_invalidate_lead_events_display(leads.ids)
+        if self.env.context.get("skip_material_line_stock_sync"):
+            return res
         for lead in leads:
             if (
                 lead.material_picking_id

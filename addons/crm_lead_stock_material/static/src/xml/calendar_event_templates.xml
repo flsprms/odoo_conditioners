@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <!-- Default calendar (web): second line on the event chip -->
+    <t t-inherit="web.CalendarCommonRenderer.event" t-inherit-mode="extension">
+        <xpath expr="//div[@class='o_event_title']" position="after">
+            <div
+                t-if="rawRecord.crm_copper_pipe_card"
+                class="o_calendar_copper_pipe text-truncate small fw-normal lh-sm"
+                t-esc="rawRecord.crm_copper_pipe_card"
+            />
+        </xpath>
+    </t>
+    <!-- Calendar app (attendee_calendar): second line on the event chip -->
+    <t t-inherit="calendar.AttendeeCalendarCommonRenderer.event" t-inherit-mode="extension">
+        <xpath expr="//div[contains(@t-attf-class, 'o_event_title')]" position="after">
+            <div
+                t-if="rawRecord.crm_copper_pipe_card"
+                class="o_calendar_copper_pipe text-truncate small fw-normal lh-sm"
+                t-esc="rawRecord.crm_copper_pipe_card"
+            />
+        </xpath>
+    </t>
+</templates>

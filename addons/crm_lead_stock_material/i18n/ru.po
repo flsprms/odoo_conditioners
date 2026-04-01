@@ -479,3 +479,57 @@ msgstr ""
 #: code:addons/crm_lead_stock_material/models/crm_lead.py:0
 msgid "The main material kit cannot be selected as an additional kit."
 msgstr "Основной комплект материалов нельзя выбирать в дополнительных комплектах."
+
+#. module: crm_lead_stock_material
+#. odoo-python
+#: code:addons/crm_lead_stock_material/models/calendar_event.py:0
+#: model:ir.model.fields.selection,name:crm_lead_stock_material.selection__calendar_event__crm_visit_slot__after_lunch
+msgid "After lunch"
+msgstr "После обеда"
+
+#. module: crm_lead_stock_material
+#. odoo-python
+#: code:addons/crm_lead_stock_material/models/calendar_event.py:0
+#: model:ir.model.fields.selection,name:crm_lead_stock_material.selection__calendar_event__crm_visit_slot__before_lunch
+msgid "Before lunch"
+msgstr "До обеда"
+
+#. module: crm_lead_stock_material
+#. odoo-python
+#: code:addons/crm_lead_stock_material/models/calendar_event.py:0
+msgid "Busy"
+msgstr "Занят"
+
+#. module: crm_lead_stock_material
+#. odoo-python
+#: code:addons/crm_lead_stock_material/models/calendar_event.py:0
+msgid "Visit time"
+msgstr "Время визита"
+
+#. module: crm_lead_stock_material
+#: model:ir.model.fields,help:crm_lead_stock_material.field_calendar_event__crm_visit_slot
+msgid ""
+"Sets the start time to morning (09:00) or afternoon (14:00) in your timezone "
+"for the selected day; keeps the current duration."
+msgstr ""
+"Устанавливает начало визита на утро (09:00) или день (14:00) в вашем часовом "
+"поясе для выбранной даты; длительность сохраняется."
+
+#. module: crm_lead_stock_material
+#. odoo-python
+#: code:addons/crm_lead_stock_material/models/calendar_event.py:0
+#, python-format
+msgid "1/4: %(q)s m"
+msgstr "1/4: %(q)s м"
+
+#. module: crm_lead_stock_material
+#. odoo-python
+#: code:addons/crm_lead_stock_material/models/calendar_event.py:0
+#, python-format
+msgid "3/8: %(q)s m"
+msgstr "3/8: %(q)s м"
+
+#. module: crm_lead_stock_material
+#: model:ir.model.fields,field_description:crm_lead_stock_material.field_calendar_event__crm_copper_pipe_card
+msgid "Copper pipe (calendar)"
+msgstr "Медные трубы (календарь)"
