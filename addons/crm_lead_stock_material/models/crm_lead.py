@@ -10,6 +10,13 @@ from .material_qty_formula import eval_material_qty_formula
 class CrmLead(models.Model):
     _inherit = "crm.lead"
 
+    @api.depends("partner_id")
+    def _compute_name(self):
+        """CRM default sets name to \"Partner's opportunity\"; use partner name only."""
+        for lead in self:
+            if not lead.name and lead.partner_id and lead.partner_id.name:
+                lead.name = lead.partner_id.name
+
     @api.model
     def _default_material_kit_id(self):
         return self.env["crm.material.kit"].search(
