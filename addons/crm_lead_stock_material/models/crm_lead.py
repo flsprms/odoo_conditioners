@@ -405,6 +405,59 @@ class CrmLead(models.Model):
             return line.warehouse_id.lot_stock_id
         return self._get_default_material_warehouse().lot_stock_id
 
+    def _prepare_material_invoice_line_vals(self, line):
+        self.ensure_one()
+        fiscal_country = self.company_id.account_fiscal_country_id
+        taxes = line.product_id.taxes_id.filtered(
+            lambda t: t.company_id == self.company_id
+            and (
+                not fiscal_country
+                or not t.country_id
+                or t.country_id == fiscal_country
+            )
+        )
+        return {
+            "name": line.name or line.product_id.display_name,
+            "product_id": line.product_id.id,
+            "quantity": line.product_uom_qty,
+            "price_unit": line.sale_price_unit or 0.0,
+            "tax_ids": [(6, 0, taxes.ids)],
+        }
+
+    def action_create_material_invoice(self):
+        """Create draft customer invoice from CRM material lines."""
+        self.ensure_one()
+        if not self.material_line_ids:
+            raise UserError(_("Add at least one material line."))
+        partner = self._get_material_partner()
+        if not partner:
+            raise UserError(_("Set a customer before creating an invoice."))
+        line_commands = [
+            (0, 0, self._prepare_material_invoice_line_vals(line))
+            for line in self.material_line_ids
+            if line.product_id and line.product_uom_qty
+        ]
+        if not line_commands:
+            raise UserError(_("No invoice lines were created from materials."))
+
+        move = self.env["account.move"].create(
+            {
+                "move_type": "out_invoice",
+                "partner_id": partner.id,
+                "invoice_origin": self.name,
+                "company_id": self.company_id.id,
+                "invoice_user_id": self.user_id.id or self.env.uid,
+                "invoice_line_ids": line_commands,
+            }
+        )
+        return {
+            "type": "ir.actions.act_window",
+            "res_model": "account.move",
+            "res_id": move.id,
+            "view_mode": "form",
+            "target": "current",
+        }
+
     def _sync_material_picking_moves(self):
         """Rebuild draft delivery moves from CRM material lines."""
         self.ensure_one()

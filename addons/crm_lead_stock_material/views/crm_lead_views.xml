@@ -63,6 +63,12 @@
                             class="btn-secondary mb-2"
                             invisible="not material_picking_id"
                         />
+                        <button
+                            name="action_create_material_invoice"
+                            string="Создать счет"
+                            type="object"
+                            class="btn-secondary mb-2"
+                        />
                     </group>
                     <field
                         name="material_line_ids"
@@ -88,6 +94,10 @@
                                 options="{'no_open': True, 'no_create': True}"
                                 groups="uom.group_uom"
                             />
+                            <field name="sale_price_unit" optional="show" sum="Total" />
+                            <field name="cost_price_unit" optional="hide" sum="Total" />
+                            <field name="sale_subtotal" optional="hide" sum="Total" />
+                            <field name="cost_subtotal" optional="hide" sum="Total" />
                             <field
                                 name="warehouse_id"
                                 optional="show"

@@ -74,6 +74,32 @@ class CrmLeadMaterialLine(models.Model):
         compute="_compute_qty_available",
         digits="Product Unit of Measure",
     )
+    currency_id = fields.Many2one(
+        "res.currency",
+        related="lead_id.company_id.currency_id",
+        string="Валюта",
+        readonly=True,
+    )
+    sale_price_unit = fields.Float(
+        string="Цена продажи",
+        compute="_compute_pricing",
+        digits="Product Price",
+    )
+    cost_price_unit = fields.Float(
+        string="Цена себестоимости",
+        compute="_compute_pricing",
+        digits="Product Price",
+    )
+    sale_subtotal = fields.Monetary(
+        string="Сумма продажи",
+        compute="_compute_pricing",
+        currency_field="currency_id",
+    )
+    cost_subtotal = fields.Monetary(
+        string="Сумма себестоимости",
+        compute="_compute_pricing",
+        currency_field="currency_id",
+    )
     move_id = fields.Many2one(
         "stock.move",
         string=_("Stock move"),
@@ -118,6 +144,23 @@ class CrmLeadMaterialLine(models.Model):
                 ]
             )
             line.qty_available = sum(q.quantity - q.reserved_quantity for q in quants)
+
+    @api.depends("product_id", "product_uom_qty")
+    def _compute_pricing(self):
+        for line in self:
+            if not line.product_id:
+                line.sale_price_unit = 0.0
+                line.cost_price_unit = 0.0
+                line.sale_subtotal = 0.0
+                line.cost_subtotal = 0.0
+                continue
+            sale_price = line.product_id.lst_price or 0.0
+            cost_price = line.product_id.standard_price or 0.0
+            qty = line.product_uom_qty or 0.0
+            line.sale_price_unit = sale_price
+            line.cost_price_unit = cost_price
+            line.sale_subtotal = sale_price * qty
+            line.cost_subtotal = cost_price * qty
 
     def _fallback_qty_for_formula(self, vals=None):
         self.ensure_one()
@@ -226,9 +269,6 @@ class CrmLeadMaterialLine(models.Model):
         if self.env.context.get("skip_material_line_stock_sync"):
             return res
         for lead in leads:
-            if (
-                lead.material_picking_id
-                and lead.material_picking_id.state == "draft"
-            ):
+            if lead.material_picking_id and lead.material_picking_id.state == "draft":
                 lead.sudo()._sync_material_picking_moves()
         return res
