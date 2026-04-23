@@ -95,7 +95,7 @@
                                 groups="uom.group_uom"
                             />
                             <field name="sale_price_unit" optional="show" sum="Total" />
-                            <field name="cost_price_unit" optional="hide" sum="Total" />
+                            <field name="cost_price_unit" optional="show" sum="Total" />
                             <field name="sale_subtotal" optional="hide" sum="Total" />
                             <field name="cost_subtotal" optional="hide" sum="Total" />
                             <field
