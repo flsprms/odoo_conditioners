@@ -5,6 +5,16 @@
         <field name="model">crm.lead</field>
         <field name="inherit_id" ref="crm.crm_lead_view_form" />
         <field name="arch" type="xml">
+            <xpath expr="//field[@name='expected_revenue']" position="after">
+                <span class="oe_grey p-2 text-nowrap">Факт:</span>
+                <field
+                    name="factual_profit"
+                    class="o_input_13ch"
+                    widget="monetary"
+                    options="{'currency_field': 'company_currency'}"
+                    readonly="1"
+                />
+            </xpath>
             <xpath expr="//div[@name='button_box']" position="inside">
                 <button
                     name="action_open_material_picking"
@@ -112,7 +122,41 @@
                             <field name="move_id" optional="hide" />
                         </list>
                     </field>
+                    <group string="Дополнительные расходы">
+                        <field
+                            name="extra_expense_ids"
+                            nolabel="1"
+                            context="{'default_lead_id': id}"
+                        >
+                            <list editable="bottom">
+                                <field name="name" />
+                                <field name="amount" sum="Total" />
+                                <field name="note" optional="hide" />
+                            </list>
+                        </field>
+                    </group>
                 </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="crm_case_kanban_view_leads_inherit_stock_material_profit" model="ir.ui.view">
+        <field name="name">crm.lead.kanban.stock.material.profit</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_case_kanban_view_leads" />
+        <field name="arch" type="xml">
+            <xpath expr="//kanban" position="inside">
+                <field name="factual_profit" />
+            </xpath>
+            <xpath expr="//field[@name='expected_revenue']/.." position="after">
+                <div class="text-muted">
+                    <span>Факт: </span>
+                    <field
+                        name="factual_profit"
+                        widget="monetary"
+                        options="{'currency_field': 'company_currency'}"
+                    />
+                </div>
             </xpath>
         </field>
     </record>

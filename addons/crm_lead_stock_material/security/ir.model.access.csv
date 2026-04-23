@@ -5,3 +5,5 @@ access_crm_material_kit_user,crm.material.kit.user,model_crm_material_kit,sales_
 access_crm_material_kit_manager,crm.material.kit.manager,model_crm_material_kit,sales_team.group_sale_manager,1,1,1,1
 access_crm_material_kit_line_user,crm.material.kit.line.user,model_crm_material_kit_line,sales_team.group_sale_salesman,1,1,1,1
 access_crm_material_kit_line_manager,crm.material.kit.line.manager,model_crm_material_kit_line,sales_team.group_sale_manager,1,1,1,1
+access_crm_lead_extra_expense_user,crm.lead.extra.expense.user,model_crm_lead_extra_expense,sales_team.group_sale_salesman,1,1,1,1
+access_crm_lead_extra_expense_manager,crm.lead.extra.expense.manager,model_crm_lead_extra_expense,sales_team.group_sale_manager,1,1,1,1

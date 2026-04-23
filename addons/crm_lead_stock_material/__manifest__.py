@@ -4,7 +4,7 @@
 {
     "name": "CRM Lead Stock Materials",
     "summary": "Add material lines (stock products) to CRM leads and opportunities",
-    "version": "18.0.1.14.0",
+    "version": "18.0.1.15.0",
     "sequence": -1000,
     "category": "Sales/CRM",
     "author": "Custom",

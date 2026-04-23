@@ -55,6 +55,26 @@ class CrmLead(models.Model):
         "lead_id",
         string=_("Materials"),
     )
+    extra_expense_ids = fields.One2many(
+        "crm.lead.extra.expense",
+        "lead_id",
+        string=_("Дополнительные расходы"),
+    )
+    material_sale_expense_total = fields.Monetary(
+        string=_("Расходы по материалам (по цене продажи)"),
+        currency_field="company_currency",
+        compute="_compute_profit_fields",
+    )
+    extra_expense_total = fields.Monetary(
+        string=_("Итого доп. расходы"),
+        currency_field="company_currency",
+        compute="_compute_profit_fields",
+    )
+    factual_profit = fields.Monetary(
+        string=_("Фактическая прибыль"),
+        currency_field="company_currency",
+        compute="_compute_profit_fields",
+    )
     material_formula_x = fields.Float(
         string=_("Base quantity (x)"),
         default=1.0,
@@ -82,6 +102,19 @@ class CrmLead(models.Model):
         related="material_picking_id.state",
         string=_("Delivery state"),
     )
+
+    @api.depends(
+        "expected_revenue",
+        "material_line_ids.sale_subtotal",
+        "extra_expense_ids.amount",
+    )
+    def _compute_profit_fields(self):
+        for lead in self:
+            material_sale = sum(lead.material_line_ids.mapped("sale_subtotal"))
+            extra_expense = sum(lead.extra_expense_ids.mapped("amount"))
+            lead.material_sale_expense_total = material_sale
+            lead.extra_expense_total = extra_expense
+            lead.factual_profit = (lead.expected_revenue or 0.0) - material_sale - extra_expense
 
     @api.constrains("material_kit_id", "material_kit_extra_ids")
     def _check_material_kit_extra_overlap(self):
