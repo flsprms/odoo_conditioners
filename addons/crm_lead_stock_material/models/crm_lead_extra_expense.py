@@ -27,6 +27,7 @@ class CrmLeadExtraExpense(models.Model):
         "res.currency",
         related="lead_id.company_currency",
         string=_("Валюта"),
+        store=True,
         readonly=True,
     )
     note = fields.Char(string=_("Примечание"))
