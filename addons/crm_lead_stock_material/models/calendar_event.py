@@ -41,7 +41,6 @@ class CalendarEvent(models.Model):
             "Sets the start time to morning (09:00) or afternoon (14:00) "
             "in your timezone for the selected day; keeps the current duration."
         ),
-        default="before_lunch",
     )
 
     def _crm_copper_pipe_summary_from_lead(self, lead):

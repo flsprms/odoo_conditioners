@@ -78,26 +78,31 @@ class CrmLeadMaterialLine(models.Model):
         "res.currency",
         related="lead_id.company_id.currency_id",
         string="Валюта",
+        store=True,
         readonly=True,
     )
     sale_price_unit = fields.Float(
         string="Цена продажи",
         compute="_compute_pricing",
+        store=True,
         digits="Product Price",
     )
     cost_price_unit = fields.Float(
         string="Цена себестоимости",
         compute="_compute_pricing",
+        store=True,
         digits="Product Price",
     )
     sale_subtotal = fields.Monetary(
         string="Сумма продажи",
         compute="_compute_pricing",
+        store=True,
         currency_field="currency_id",
     )
     cost_subtotal = fields.Monetary(
         string="Сумма себестоимости",
         compute="_compute_pricing",
+        store=True,
         currency_field="currency_id",
     )
     move_id = fields.Many2one(
@@ -145,7 +150,7 @@ class CrmLeadMaterialLine(models.Model):
             )
             line.qty_available = sum(q.quantity - q.reserved_quantity for q in quants)
 
-    @api.depends("product_id", "product_uom_qty")
+    @api.depends("product_id", "product_id.lst_price", "product_id.standard_price", "product_uom_qty")
     def _compute_pricing(self):
         for line in self:
             if not line.product_id:

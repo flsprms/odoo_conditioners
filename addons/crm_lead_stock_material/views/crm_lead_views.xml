@@ -91,6 +91,7 @@
                             default_order="id asc"
                         >
                             <field name="sequence" optional="hide" />
+                            <field name="currency_id" column_invisible="1" />
                             <field name="product_id" width="200" />
                             <field name="product_uom_qty" />
                             <field name="qty_formula" optional="hide" />
@@ -106,7 +107,7 @@
                             />
                             <field name="sale_price_unit" optional="show" sum="Total" />
                             <field name="cost_price_unit" optional="show" sum="Total" />
-                            <field name="sale_subtotal" optional="hide" sum="Total" />
+                            <field name="sale_subtotal" optional="show" sum="Total" />
                             <field name="cost_subtotal" optional="hide" sum="Total" />
                             <field
                                 name="warehouse_id"
