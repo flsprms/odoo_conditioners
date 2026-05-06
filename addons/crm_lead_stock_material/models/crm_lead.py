@@ -1,6 +1,8 @@
 # Copyright 2026
 # License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl-3.0.html)
 
+from datetime import timedelta
+
 from odoo import _, api, fields, models
 from odoo.exceptions import UserError
 
@@ -114,7 +116,43 @@ class CrmLead(models.Model):
             extra_expense = sum(lead.extra_expense_ids.mapped("amount"))
             lead.material_cost_expense_total = material_cost
             lead.extra_expense_total = extra_expense
-            lead.factual_profit = (lead.expected_revenue or 0.0) - material_cost - extra_expense
+            lead.factual_profit = (
+                (lead.expected_revenue or 0.0) - material_cost - extra_expense
+            )
+
+    @api.model
+    def _get_last_available_stage(self, team):
+        domain = [("team_id", "=", False)]
+        if team:
+            domain = ["|", ("team_id", "=", False), ("team_id", "=", team.id)]
+        return self.env["crm.stage"].search(
+            domain,
+            order="sequence desc, id desc",
+            limit=1,
+        )
+
+    @api.model
+    def _cron_move_won_leads_to_last_stage(self):
+        deadline = fields.Datetime.now() - timedelta(days=3)
+        leads = self.sudo().search(
+            [
+                ("type", "=", "opportunity"),
+                ("active", "=", True),
+                ("stage_id.is_won", "=", True),
+                ("date_closed", "!=", False),
+                ("date_closed", "<=", deadline),
+            ]
+        )
+        stage_by_team = {}
+        for lead in leads:
+            team_key = lead.team_id.id or False
+            if team_key not in stage_by_team:
+                stage_by_team[team_key] = lead._get_last_available_stage(
+                    lead.team_id
+                )
+            stage = stage_by_team[team_key]
+            if stage and lead.stage_id != stage:
+                lead.write({"stage_id": stage.id})
 
     @api.constrains("material_kit_id", "material_kit_extra_ids")
     def _check_material_kit_extra_overlap(self):
