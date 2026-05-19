@@ -41,6 +41,39 @@
         </field>
     </record>
 
+    <!-- Участники: в подсказке сначала внутренние пользователи (менеджеры), затем прочие контакты -->
+    <record id="view_calendar_event_form_inherit_attendees_internal_first" model="ir.ui.view">
+        <field name="name">calendar.event.form.attendees.internal.first</field>
+        <field name="model">calendar.event</field>
+        <field name="inherit_id" ref="calendar.view_calendar_event_form" />
+        <field name="arch" type="xml">
+            <xpath
+                expr="//field[@name='partner_ids'][@widget='many2manyattendee']"
+                position="attributes"
+            >
+                <attribute name="context">
+                {'form_view_ref': 'base.view_partner_simple_form', 'calendar_internal_partners_first': True}
+                </attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_calendar_event_form_quick_create_inherit_attendees_internal_first" model="ir.ui.view">
+        <field name="name">calendar.event.form.quick.create.attendees.internal.first</field>
+        <field name="model">calendar.event</field>
+        <field name="inherit_id" ref="calendar.view_calendar_event_form_quick_create" />
+        <field name="arch" type="xml">
+            <xpath
+                expr="//field[@name='partner_ids'][@widget='many2manyattendee']"
+                position="attributes"
+            >
+                <attribute name="context">
+                {'form_view_ref': 'base.view_partner_simple_form', 'calendar_internal_partners_first': True}
+                </attribute>
+            </xpath>
+        </field>
+    </record>
+
     <record id="view_calendar_event_search_inherit_crm_lead_material" model="ir.ui.view">
         <field name="name">calendar.event.search.crm.lead.material</field>
         <field name="model">calendar.event</field>
