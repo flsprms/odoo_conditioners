@@ -81,7 +81,9 @@ class CrmLead(models.Model):
         string=_("Base quantity (x)"),
         default=1.0,
         digits="Product Unit of Measure",
-        help=_("Variable x in material line formulas (shown above the materials list)."),
+        help=_(
+            "Variable x in material line formulas (shown above the materials list)."
+        ),
     )
     material_base_product_id = fields.Many2one(
         "product.product",
@@ -147,9 +149,7 @@ class CrmLead(models.Model):
         for lead in leads:
             team_key = lead.team_id.id or False
             if team_key not in stage_by_team:
-                stage_by_team[team_key] = lead._get_last_available_stage(
-                    lead.team_id
-                )
+                stage_by_team[team_key] = lead._get_last_available_stage(lead.team_id)
             stage = stage_by_team[team_key]
             if stage and lead.stage_id != stage:
                 lead.write({"stage_id": stage.id})
@@ -162,9 +162,7 @@ class CrmLead(models.Model):
                 and lead.material_kit_id in lead.material_kit_extra_ids
             ):
                 raise UserError(
-                    _(
-                        "The main material kit cannot be selected as an additional kit."
-                    )
+                    _("The main material kit cannot be selected as an additional kit.")
                 )
 
     def _lines_from_kit_domain(self, kit):
@@ -172,8 +170,7 @@ class CrmLead(models.Model):
         if not kit:
             return self.env["crm.lead.material.line"]
         return self.material_line_ids.filtered(
-            lambda l: l.kit_template_line_id
-            and l.kit_template_line_id.kit_id == kit
+            lambda l: l.kit_template_line_id and l.kit_template_line_id.kit_id == kit
         )
 
     def _append_kit_lines_from_kit(self, kit):
@@ -246,10 +243,7 @@ class CrmLead(models.Model):
                 }
             )
             lead._append_kit_lines_from_kit(kit)
-            if (
-                lead.material_picking_id
-                and lead.material_picking_id.state == "draft"
-            ):
+            if lead.material_picking_id and lead.material_picking_id.state == "draft":
                 lead.sudo()._sync_material_picking_moves()
 
     def _append_extra_material_kits(self, old_extra_ids_by_lead):
@@ -327,7 +321,9 @@ class CrmLead(models.Model):
     @api.onchange("material_kit_id")
     def _onchange_material_kit_id(self):
         if self.material_kit_id and self.material_kit_id in self.material_kit_extra_ids:
-            self.material_kit_extra_ids = self.material_kit_extra_ids - self.material_kit_id
+            self.material_kit_extra_ids = (
+                self.material_kit_extra_ids - self.material_kit_id
+            )
         cmds = self._material_kit_onchange_commands()
         if cmds:
             self.material_line_ids = cmds
@@ -335,7 +331,9 @@ class CrmLead(models.Model):
     @api.onchange("material_kit_extra_ids")
     def _onchange_material_kit_extra_ids(self):
         if self.material_kit_id and self.material_kit_id in self.material_kit_extra_ids:
-            self.material_kit_extra_ids = self.material_kit_extra_ids - self.material_kit_id
+            self.material_kit_extra_ids = (
+                self.material_kit_extra_ids - self.material_kit_id
+            )
         old_ids = set(self._origin.material_kit_extra_ids.ids)
         new_ids = set(self.material_kit_extra_ids.ids)
         if self.material_kit_id:
@@ -383,10 +381,7 @@ class CrmLead(models.Model):
                     skip_material_line_stock_sync=True,
                     skip_material_formula_recompute=True,
                 ).write({"product_uom_qty": new_qty})
-            if (
-                lead.material_picking_id
-                and lead.material_picking_id.state == "draft"
-            ):
+            if lead.material_picking_id and lead.material_picking_id.state == "draft":
                 lead.sudo()._sync_material_picking_moves()
 
     @api.onchange("material_formula_x")
@@ -437,7 +432,11 @@ class CrmLead(models.Model):
             lead = self
             if new_main and new_main in lead.material_kit_extra_ids.ids:
                 vals["material_kit_extra_ids"] = [
-                    (6, 0, [k for k in lead.material_kit_extra_ids.ids if k != new_main])
+                    (
+                        6,
+                        0,
+                        [k for k in lead.material_kit_extra_ids.ids if k != new_main],
+                    )
                 ]
         res = super().write(vals)
         if self.env.context.get("skip_material_kit_side_effects"):
@@ -482,9 +481,7 @@ class CrmLead(models.Model):
         taxes = line.product_id.taxes_id.filtered(
             lambda t: t.company_id == self.company_id
             and (
-                not fiscal_country
-                or not t.country_id
-                or t.country_id == fiscal_country
+                not fiscal_country or not t.country_id or t.country_id == fiscal_country
             )
         )
         return {
@@ -544,9 +541,9 @@ class CrmLead(models.Model):
                 )
                 % {"name": pick.name}
             )
-        self.material_line_ids.with_context(
-            skip_material_line_stock_sync=True
-        ).write({"move_id": False})
+        self.material_line_ids.with_context(skip_material_line_stock_sync=True).write(
+            {"move_id": False}
+        )
         pick.move_ids.unlink()
         customer_loc = self.env.ref("stock.stock_location_customers")
         partner = self._get_material_partner()
@@ -597,16 +594,20 @@ class CrmLead(models.Model):
         )
         first_src = lead._get_material_src_location(first_line)
         customer_loc = lead.env.ref("stock.stock_location_customers")
-        pick = lead.env["stock.picking"].sudo().create(
-            {
-                "picking_type_id": picking_type.id,
-                "partner_id": partner_id,
-                "location_id": first_src.id,
-                "location_dest_id": customer_loc.id,
-                "origin": lead.name,
-                "company_id": lead.company_id.id,
-                "crm_lead_id": lead.id,
-            }
+        pick = (
+            lead.env["stock.picking"]
+            .sudo()
+            .create(
+                {
+                    "picking_type_id": picking_type.id,
+                    "partner_id": partner_id,
+                    "location_id": first_src.id,
+                    "location_dest_id": customer_loc.id,
+                    "origin": lead.name,
+                    "company_id": lead.company_id.id,
+                    "crm_lead_id": lead.id,
+                }
+            )
         )
         lead.write({"material_picking_id": pick.id})
         lead._sync_material_picking_moves()

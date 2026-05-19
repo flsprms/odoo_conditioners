@@ -5,8 +5,12 @@
         <field name="model">calendar.event</field>
         <field name="inherit_id" ref="calendar.view_calendar_event_calendar" />
         <field name="arch" type="xml">
+            <xpath expr="//calendar" position="attributes">
+                <attribute name="color">calendar_color_index</attribute>
+            </xpath>
             <xpath expr="//calendar" position="inside">
                 <field name="crm_copper_pipe_card" invisible="1" />
+                <field name="is_secondary" invisible="1" />
             </xpath>
         </field>
     </record>
@@ -16,8 +20,10 @@
         <field name="model">calendar.event</field>
         <field name="inherit_id" ref="calendar.view_calendar_event_form_quick_create" />
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='name']" position="after">
+            <xpath expr="//field[@name='allday']" position="after">
                 <field name="crm_visit_slot" />
+                <field name="is_secondary" />
+                <field name="calendar_color_index" widget="color_picker" readonly="is_secondary" />
             </xpath>
         </field>
     </record>
@@ -27,8 +33,26 @@
         <field name="model">calendar.event</field>
         <field name="inherit_id" ref="calendar.view_calendar_event_form" />
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='name']" position="after">
+            <xpath expr="//field[@name='location']" position="after">
                 <field name="crm_visit_slot" />
+                <field name="is_secondary" />
+                <field name="calendar_color_index" widget="color_picker" readonly="is_secondary" />
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_calendar_event_search_inherit_crm_lead_material" model="ir.ui.view">
+        <field name="name">calendar.event.search.crm.lead.material</field>
+        <field name="model">calendar.event</field>
+        <field name="inherit_id" ref="calendar.view_calendar_event_search" />
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='mymeetings']" position="after">
+                <separator />
+                <filter
+                    string="Только второстепенные"
+                    name="filter_include_secondary_events"
+                    domain="[('is_secondary', '=', True)]"
+                />
             </xpath>
         </field>
     </record>

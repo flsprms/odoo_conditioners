@@ -4,7 +4,7 @@
 {
     "name": "CRM Lead Stock Materials",
     "summary": "Add material lines (stock products) to CRM leads and opportunities",
-    "version": "18.0.1.16.0",
+    "version": "18.0.1.33.0",
     "sequence": -1000,
     "category": "Sales/CRM",
     "author": "Custom",
@@ -12,6 +12,7 @@
     "depends": ["crm", "stock", "sales_team", "calendar", "account"],
     "data": [
         "security/ir.model.access.csv",
+        "views/res_users_views.xml",
         "views/crm_lead_cron.xml",
         "views/crm_material_kit_views.xml",
         "views/crm_lead_views.xml",
@@ -20,6 +21,9 @@
     ],
     "assets": {
         "web.assets_backend": [
+            "crm_lead_stock_material/static/src/js/calendar_secondary_color_constants.js",
+            "crm_lead_stock_material/static/src/js/attendee_calendar_color_patch.js",
+            "crm_lead_stock_material/static/src/js/calendar_secondary_hatch_patch.js",
             "crm_lead_stock_material/static/src/xml/calendar_event_templates.xml",
         ],
     },
