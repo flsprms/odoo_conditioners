@@ -1,0 +1,64 @@
+.o_conditioners_topbar a:hover {
+    opacity: 0.85;
+}
+
+.s_conditioners_hero {
+    background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 50%, #084298 100%);
+    color: #fff;
+
+    h1,
+    .lead {
+        color: #fff;
+    }
+}
+
+.s_conditioners_services .card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.12);
+    }
+}
+
+.s_conditioners_reviews .card {
+    height: 100%;
+}
+
+.s_conditioners_faq .accordion-button:not(.collapsed) {
+    background-color: rgba(13, 110, 253, 0.08);
+    color: #0d6efd;
+}
+
+.o_conditioners_header_contacts {
+    gap: 0.75rem;
+}
+
+.o_conditioners_whatsapp_float {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    z-index: 1030;
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #25d366;
+    color: #fff;
+    font-size: 1.75rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease;
+
+    &:hover {
+        color: #fff;
+        transform: scale(1.08);
+    }
+}
+
+.o_conditioners_portfolio_img {
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    width: 100%;
+}

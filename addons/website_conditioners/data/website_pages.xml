@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Главная: переопределение стандартной homepage -->
+    <template id="conditioners_homepage" inherit_id="website.homepage" name="Conditioners Homepage">
+        <xpath expr="//div[@id='wrap']" position="replace">
+            <div id="wrap" class="oe_structure oe_empty">
+                <t t-call="website_conditioners.s_conditioners_hero"/>
+                <t t-call="website_conditioners.s_conditioners_advantages"/>
+                <t t-call="website_conditioners.s_conditioners_services"/>
+                <t t-call="website_conditioners.s_conditioners_reviews"/>
+                <t t-call="website_conditioners.s_conditioners_contact_form"/>
+            </div>
+        </xpath>
+    </template>
+
+    <!-- Услуги -->
+    <record id="page_uslugi" model="website.page">
+        <field name="name">Услуги</field>
+        <field name="type">qweb</field>
+        <field name="url">/uslugi</field>
+        <field name="website_indexed" eval="True"/>
+        <field name="is_published" eval="True"/>
+        <field name="key">website_conditioners.page_uslugi</field>
+        <field name="arch" type="xml">
+            <t name="Услуги" t-name="website_conditioners.page_uslugi">
+                <t t-call="website.layout">
+                    <div id="wrap" class="oe_structure">
+                        <section class="pt48 pb24">
+                            <div class="container">
+                                <h1>Услуги и цены</h1>
+                                <p class="lead text-muted">Профессиональный монтаж, обслуживание и ремонт климатического оборудования в Москве.</p>
+                            </div>
+                        </section>
+                        <t t-call="website_conditioners.s_conditioners_services"/>
+                        <section class="pt24 pb48">
+                            <div class="container">
+                                <div class="row g-4">
+                                    <div class="col-lg-4">
+                                        <h3>Установка под ключ</h3>
+                                        <ul>
+                                            <li>Разметка и крепление блоков</li>
+                                            <li>Прокладка медной трассы</li>
+                                            <li>Вакуумирование и запуск</li>
+                                            <li>Инструктаж по эксплуатации</li>
+                                        </ul>
+                                        <p class="fw-bold text-primary">от 5 000 ₽</p>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <h3>Обслуживание</h3>
+                                        <ul>
+                                            <li>Чистка фильтров и теплообменника</li>
+                                            <li>Антибактериальная обработка</li>
+                                            <li>Проверка давления фреона</li>
+                                            <li>Диагностика электрики</li>
+                                        </ul>
+                                        <p class="fw-bold text-primary">от 2 500 ₽</p>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <h3>Ремонт</h3>
+                                        <ul>
+                                            <li>Диагностика на месте</li>
+                                            <li>Замена комплектующих</li>
+                                            <li>Устранение утечек фреона</li>
+                                            <li>Ремонт платы управления</li>
+                                        </ul>
+                                        <p class="fw-bold text-primary">от 1 500 ₽</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <t t-call="website_conditioners.s_conditioners_contact_form"/>
+                    </div>
+                </t>
+            </t>
+        </field>
+    </record>
+
+    <!-- О нас -->
+    <record id="page_o_nas" model="website.page">
+        <field name="name">О нас</field>
+        <field name="type">qweb</field>
+        <field name="url">/o-nas</field>
+        <field name="website_indexed" eval="True"/>
+        <field name="is_published" eval="True"/>
+        <field name="key">website_conditioners.page_o_nas</field>
+        <field name="arch" type="xml">
+            <t name="О нас" t-name="website_conditioners.page_o_nas">
+                <t t-call="website.layout">
+                    <div id="wrap" class="oe_structure">
+                        <section class="pt48 pb48">
+                            <div class="container">
+                                <h1>О компании</h1>
+                                <div class="row mt-4">
+                                    <div class="col-lg-8">
+                                        <p class="lead">
+                                            «Кондиционеры Про» — команда мастеров по монтажу и обслуживанию
+                                            кондиционеров в Москве и области.
+                                        </p>
+                                        <p>
+                                            Мы работаем с квартирами, офисами и небольшими коммерческими объектами.
+                                            Подбираем оптимальное место для блоков, соблюдаем нормы безопасности
+                                            и даём понятные рекомендации по эксплуатации.
+                                        </p>
+                                        <p>
+                                            Все работы выполняются с договором и гарантией. Используем профессиональный
+                                            инструмент и расходные материалы, подходящие для вашей модели оборудования.
+                                        </p>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="card shadow-sm">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Наши преимущества</h5>
+                                                <ul class="mb-0">
+                                                    <li>Более 5 лет на рынке</li>
+                                                    <li>Выезд в день обращения</li>
+                                                    <li>Работаем без выходных</li>
+                                                    <li>Официальный договор</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </t>
+            </t>
+        </field>
+    </record>
+
+    <!-- Портфолио -->
+    <record id="page_portfolio" model="website.page">
+        <field name="name">Портфолио</field>
+        <field name="type">qweb</field>
+        <field name="url">/portfolio</field>
+        <field name="website_indexed" eval="True"/>
+        <field name="is_published" eval="True"/>
+        <field name="key">website_conditioners.page_portfolio</field>
+        <field name="arch" type="xml">
+            <t name="Портфолио" t-name="website_conditioners.page_portfolio">
+                <t t-call="website.layout">
+                    <div id="wrap" class="oe_structure">
+                        <section class="pt48 pb48">
+                            <div class="container">
+                                <h1 class="mb-4">Наши работы</h1>
+                                <p class="text-muted mb-4">Примеры установленных кондиционеров (фото-заглушки, замените на реальные снимки).</p>
+                                <div class="row g-3">
+                                    <div class="col-md-4">
+                                        <div class="bg-primary o_conditioners_portfolio_img rounded d-flex align-items-center justify-content-center text-white shadow-sm">Фото 1</div>
+                                        <p class="mt-2 mb-0">Квартира, настенный блок 2.5 кВт</p>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="bg-primary o_conditioners_portfolio_img rounded d-flex align-items-center justify-content-center text-white shadow-sm">Фото 2</div>
+                                        <p class="mt-2 mb-0">Офис, кассетный блок</p>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="bg-primary o_conditioners_portfolio_img rounded d-flex align-items-center justify-content-center text-white shadow-sm">Фото 3</div>
+                                        <p class="mt-2 mb-0">Частный дом, мульти-сплит</p>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="bg-secondary o_conditioners_portfolio_img rounded d-flex align-items-center justify-content-center text-white">
+                                            Фото 4
+                                        </div>
+                                        <p class="mt-2 mb-0">Спальня, инверторная сплит-система</p>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="bg-secondary o_conditioners_portfolio_img rounded d-flex align-items-center justify-content-center text-white">
+                                            Фото 5
+                                        </div>
+                                        <p class="mt-2 mb-0">Кухня-гостиная, 3.5 кВт</p>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="bg-secondary o_conditioners_portfolio_img rounded d-flex align-items-center justify-content-center text-white">
+                                            Фото 6
+                                        </div>
+                                        <p class="mt-2 mb-0">Коммерческое помещение</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </t>
+            </t>
+        </field>
+    </record>
+
+    <!-- Отзывы -->
+    <record id="page_otzyvy" model="website.page">
+        <field name="name">Отзывы</field>
+        <field name="type">qweb</field>
+        <field name="url">/otzyvy</field>
+        <field name="website_indexed" eval="True"/>
+        <field name="is_published" eval="True"/>
+        <field name="key">website_conditioners.page_otzyvy</field>
+        <field name="arch" type="xml">
+            <t name="Отзывы" t-name="website_conditioners.page_otzyvy">
+                <t t-call="website.layout">
+                    <div id="wrap" class="oe_structure">
+                        <section class="pt48 pb24">
+                            <div class="container">
+                                <h1>Отзывы клиентов</h1>
+                            </div>
+                        </section>
+                        <t t-call="website_conditioners.s_conditioners_reviews"/>
+                        <section class="pb48">
+                            <div class="container">
+                                <div class="row g-4">
+                                    <div class="col-md-6">
+                                        <div class="card shadow-sm h-100">
+                                            <div class="card-body">
+                                                <p>«Заказывали установку двух кондиционеров — всё сделали аккуратно, мусор убрали.»</p>
+                                                <p class="text-muted mb-0"><strong>Ольга С.</strong></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="card shadow-sm h-100">
+                                            <div class="card-body">
+                                                <p>«Понравилось, что мастер объяснил, как пользоваться пультом и когда вызывать сервис.»</p>
+                                                <p class="text-muted mb-0"><strong>Игорь П.</strong></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </t>
+            </t>
+        </field>
+    </record>
+
+    <!-- FAQ -->
+    <record id="page_faq" model="website.page">
+        <field name="name">FAQ</field>
+        <field name="type">qweb</field>
+        <field name="url">/faq</field>
+        <field name="website_indexed" eval="True"/>
+        <field name="is_published" eval="True"/>
+        <field name="key">website_conditioners.page_faq</field>
+        <field name="arch" type="xml">
+            <t name="FAQ" t-name="website_conditioners.page_faq">
+                <t t-call="website.layout">
+                    <div id="wrap" class="oe_structure">
+                        <section class="pt48 pb24">
+                            <div class="container">
+                                <h1>Частые вопросы</h1>
+                            </div>
+                        </section>
+                        <t t-call="website_conditioners.s_conditioners_faq"/>
+                        <section class="pb48">
+                            <div class="container">
+                                <div class="accordion" id="conditionersFaqExtra">
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+                                                Можно ли установить кондиционер зимой?
+                                            </button>
+                                        </h2>
+                                        <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#conditionersFaqExtra">
+                                            <div class="accordion-body">Да, монтаж возможен круглый год. Запуск и проверку холодопроизводительности при необходимости проводим в тёплый сезон.</div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq6">
+                                                Вы помогаете с выбором модели?
+                                            </button>
+                                        </h2>
+                                        <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#conditionersFaqExtra">
+                                            <div class="accordion-body">Да, подскажем по мощности и типу системы исходя из площади помещения и особенностей планировки.</div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq7">
+                                                Какие бренды обслуживаете?
+                                            </button>
+                                        </h2>
+                                        <div id="faq7" class="accordion-collapse collapse" data-bs-parent="#conditionersFaqExtra">
+                                            <div class="accordion-body">Daikin, Mitsubishi, LG, Samsung, Ballu, Gree и другие популярные марки.</div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq8">
+                                                Как оформить заявку?
+                                            </button>
+                                        </h2>
+                                        <div id="faq8" class="accordion-collapse collapse" data-bs-parent="#conditionersFaqExtra">
+                                            <div class="accordion-body">Заполните форму на сайте, позвоните по телефону или напишите в WhatsApp — перезвоним в течение 30 минут в рабочее время.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </t>
+            </t>
+        </field>
+    </record>
+
+    <!-- Контакты -->
+    <record id="page_kontakty" model="website.page">
+        <field name="name">Контакты</field>
+        <field name="type">qweb</field>
+        <field name="url">/kontakty</field>
+        <field name="website_indexed" eval="True"/>
+        <field name="is_published" eval="True"/>
+        <field name="key">website_conditioners.page_kontakty</field>
+        <field name="arch" type="xml">
+            <t name="Контакты" t-name="website_conditioners.page_kontakty">
+                <t t-call="website.layout">
+                    <div id="wrap" class="oe_structure">
+                        <section class="pt48 pb24">
+                            <div class="container">
+                                <h1>Контакты</h1>
+                                <div class="row mt-4">
+                                    <div class="col-lg-5">
+                                        <p class="lead">Кондиционеры Про</p>
+                                        <p><i class="fa fa-map-marker me-2"/> Москва и Московская область</p>
+                                        <p>
+                                            <i class="fa fa-phone me-2"/>
+                                            <a href="tel:+79990000000">+7 (999) 000-00-00</a>
+                                        </p>
+                                        <p>
+                                            <i class="fa fa-envelope me-2"/>
+                                            <a href="mailto:info@example.com">info@example.com</a>
+                                        </p>
+                                        <p>
+                                            <a href="https://wa.me/79990000000" class="btn btn-success" target="_blank" rel="noopener noreferrer">
+                                                <i class="fa fa-whatsapp me-1"/> Написать в WhatsApp
+                                            </a>
+                                        </p>
+                                        <p class="text-muted small">Пн–Вс: 9:00–21:00</p>
+                                    </div>
+                                    <div class="col-lg-7">
+                                        <div class="ratio ratio-16x9 rounded shadow-sm overflow-hidden">
+                                            <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Aplaceholder&amp;lang=ru_RU"
+                                                    title="Карта (заглушка)"
+                                                    style="border:0;"
+                                                    allowfullscreen=""
+                                                    loading="lazy"/>
+                                        </div>
+                                        <p class="text-muted small mt-2">Замените iframe на карту с вашим адресом в редакторе сайта.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <t t-call="website_conditioners.s_conditioners_contact_form"/>
+                    </div>
+                </t>
+            </t>
+        </field>
+    </record>
+</odoo>

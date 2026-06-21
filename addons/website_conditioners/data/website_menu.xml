@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="menu_conditioners_home" model="website.menu">
+        <field name="name">Главная</field>
+        <field name="url">/</field>
+        <field name="parent_id" ref="website.main_menu"/>
+        <field name="sequence" type="int">10</field>
+    </record>
+    <record id="menu_conditioners_services" model="website.menu">
+        <field name="name">Услуги</field>
+        <field name="url">/uslugi</field>
+        <field name="parent_id" ref="website.main_menu"/>
+        <field name="sequence" type="int">20</field>
+    </record>
+    <record id="menu_conditioners_about" model="website.menu">
+        <field name="name">О нас</field>
+        <field name="url">/o-nas</field>
+        <field name="parent_id" ref="website.main_menu"/>
+        <field name="sequence" type="int">30</field>
+    </record>
+    <record id="menu_conditioners_portfolio" model="website.menu">
+        <field name="name">Портфолио</field>
+        <field name="url">/portfolio</field>
+        <field name="parent_id" ref="website.main_menu"/>
+        <field name="sequence" type="int">40</field>
+    </record>
+    <record id="menu_conditioners_reviews" model="website.menu">
+        <field name="name">Отзывы</field>
+        <field name="url">/otzyvy</field>
+        <field name="parent_id" ref="website.main_menu"/>
+        <field name="sequence" type="int">50</field>
+    </record>
+    <record id="menu_conditioners_faq" model="website.menu">
+        <field name="name">FAQ</field>
+        <field name="url">/faq</field>
+        <field name="parent_id" ref="website.main_menu"/>
+        <field name="sequence" type="int">60</field>
+    </record>
+    <record id="menu_conditioners_contacts" model="website.menu">
+        <field name="name">Контакты</field>
+        <field name="url">/kontakty</field>
+        <field name="parent_id" ref="website.main_menu"/>
+        <field name="sequence" type="int">70</field>
+    </record>
+</odoo>

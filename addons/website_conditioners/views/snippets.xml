@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Hero -->
+    <template id="s_conditioners_hero" name="Conditioners Hero">
+        <section class="s_conditioners_hero pt96 pb96">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-7">
+                        <h1 class="display-4 fw-bold mb-3">Кондиционеры Про</h1>
+                        <p class="lead mb-4">
+                            Установка и обслуживание кондиционеров в Москве.
+                            Выезд мастера в день обращения, гарантия на работы.
+                        </p>
+                        <div class="d-flex flex-wrap gap-2">
+                            <a href="/kontakty" class="btn btn-light btn-lg">Оставить заявку</a>
+                            <a href="tel:+79990000000" class="btn btn-outline-light btn-lg">
+                                <i class="fa fa-phone me-1"/> Позвонить
+                            </a>
+                            <a href="https://wa.me/79990000000" class="btn btn-success btn-lg" target="_blank" rel="noopener noreferrer">
+                                <i class="fa fa-whatsapp me-1"/> WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 d-none d-lg-block text-center">
+                        <i class="fa fa-snowflake-o fa-5x opacity-75" title="Кондиционеры"/>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </template>
+
+    <!-- Advantages -->
+    <template id="s_conditioners_advantages" name="Conditioners Advantages">
+        <section class="s_conditioners_advantages pt48 pb48 bg-light">
+            <div class="container">
+                <h2 class="text-center mb-4">Почему выбирают нас</h2>
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-3">
+                        <div class="text-center p-3">
+                            <i class="fa fa-clock-o fa-3x text-primary mb-3" title="Сроки"/>
+                            <h5>Быстрый выезд</h5>
+                            <p class="text-muted mb-0">Мастер приедет в удобное для вас время, часто в день заявки.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="text-center p-3">
+                            <i class="fa fa-shield fa-3x text-primary mb-3" title="Гарантия"/>
+                            <h5>Гарантия</h5>
+                            <p class="text-muted mb-0">Гарантия на монтаж и подключение оборудования.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="text-center p-3">
+                            <i class="fa fa-wrench fa-3x text-primary mb-3" title="Опыт"/>
+                            <h5>Опытные мастера</h5>
+                            <p class="text-muted mb-0">Работаем с настенными и мульти-сплит системами любых брендов.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="text-center p-3">
+                            <i class="fa fa-ruble fa-3x text-primary mb-3" title="Цены"/>
+                            <h5>Честные цены</h5>
+                            <p class="text-muted mb-0">Фиксируем стоимость до начала работ, без скрытых доплат.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </template>
+
+    <!-- Services cards -->
+    <template id="s_conditioners_services" name="Conditioners Services">
+        <section class="s_conditioners_services pt48 pb48">
+            <div class="container">
+                <h2 class="text-center mb-4">Наши услуги</h2>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="card h-100 shadow-sm">
+                            <div class="card-body">
+                                <h5 class="card-title">Установка</h5>
+                                <p class="card-text">Монтаж настенных и кассетных кондиционеров, прокладка трасс, пусконаладка.</p>
+                                <p class="text-primary fw-bold mb-0">от 5 000 ₽</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-100 shadow-sm">
+                            <div class="card-body">
+                                <h5 class="card-title">Обслуживание</h5>
+                                <p class="card-text">Чистка, дезинфекция, дозаправка фреоном, сезонная подготовка.</p>
+                                <p class="text-primary fw-bold mb-0">от 2 500 ₽</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-100 shadow-sm">
+                            <div class="card-body">
+                                <h5 class="card-title">Ремонт</h5>
+                                <p class="card-text">Диагностика неисправностей, замена комплектующих, восстановление работы.</p>
+                                <p class="text-primary fw-bold mb-0">от 1 500 ₽</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-4">
+                    <a href="/uslugi" class="btn btn-primary">Все услуги и цены</a>
+                </div>
+            </div>
+        </section>
+    </template>
+
+    <!-- Reviews -->
+    <template id="s_conditioners_reviews" name="Conditioners Reviews">
+        <section class="s_conditioners_reviews pt48 pb48 bg-light">
+            <div class="container">
+                <h2 class="text-center mb-4">Отзывы клиентов</h2>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="card shadow-sm">
+                            <div class="card-body">
+                                <p class="card-text">«Установили кондиционер за один визит, аккуратно, без грязи. Рекомендую!»</p>
+                                <p class="text-muted mb-0"><strong>Алексей М.</strong>, Москва</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card shadow-sm">
+                            <div class="card-body">
+                                <p class="card-text">«Делали сезонное обслуживание — теперь охлаждает как новый.»</p>
+                                <p class="text-muted mb-0"><strong>Марина К.</strong>, Москва</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card shadow-sm">
+                            <div class="card-body">
+                                <p class="card-text">«Быстро приехали на ремонт, всё объяснили и починили в тот же день.»</p>
+                                <p class="text-muted mb-0"><strong>Дмитрий В.</strong>, Москва</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-4">
+                    <a href="/otzyvy" class="btn btn-outline-primary">Все отзывы</a>
+                </div>
+            </div>
+        </section>
+    </template>
+
+    <!-- FAQ -->
+    <template id="s_conditioners_faq" name="Conditioners FAQ">
+        <section class="s_conditioners_faq pt48 pb48">
+            <div class="container">
+                <h2 class="text-center mb-4">Частые вопросы</h2>
+                <div class="accordion" id="conditionersFaq">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                Сколько времени занимает установка?
+                            </button>
+                        </h2>
+                        <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#conditionersFaq">
+                            <div class="accordion-body">
+                                Стандартный монтаж настенного кондиционера занимает 3–5 часов в зависимости от длины трассы.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                Нужно ли согласование для установки?
+                            </button>
+                        </h2>
+                        <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#conditionersFaq">
+                            <div class="accordion-body">
+                                Для большинства квартир достаточно согласования с управляющей компанией. Поможем с рекомендациями по размещению блоков.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                Как часто нужно обслуживать кондиционер?
+                            </button>
+                        </h2>
+                        <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#conditionersFaq">
+                            <div class="accordion-body">
+                                Рекомендуем профилактику 1–2 раза в год: перед сезоном охлаждения и после активной эксплуатации.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                                Даёте ли вы гарантию?
+                            </button>
+                        </h2>
+                        <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#conditionersFaq">
+                            <div class="accordion-body">
+                                Да, на монтажные работы предоставляется гарантия. Срок уточняется в договоре при оформлении заказа.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-4">
+                    <a href="/faq" class="btn btn-outline-primary">Все вопросы</a>
+                </div>
+            </div>
+        </section>
+    </template>
+
+    <!-- Contact form -->
+    <template id="s_conditioners_contact_form" name="Conditioners Contact Form">
+        <section class="s_website_form pt48 pb48" data-snippet="s_website_form" data-name="Форма заявки">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <h2 class="text-center mb-4">Оставить заявку</h2>
+                        <form action="/website/form/" method="post" class="o_mark_required" data-mark="*"
+                              data-model_name="crm.lead" data-success-mode="redirect"
+                              data-success-page="/contactus-thank-you">
+                            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                            <div class="row">
+                                <div class="s_website_form_field mb-3 col-12" data-type="char" data-name="contact_name">
+                                    <label class="col-form-label" for="contact_name">Ваше имя</label>
+                                    <input id="contact_name" type="text" class="form-control s_website_form_input"
+                                           name="contact_name" required="" placeholder="Иван"/>
+                                </div>
+                                <div class="s_website_form_field mb-3 col-md-6" data-type="char" data-name="phone">
+                                    <label class="col-form-label" for="phone">Телефон</label>
+                                    <input id="phone" type="tel" class="form-control s_website_form_input"
+                                           name="phone" required="" placeholder="+7 (999) 000-00-00"/>
+                                </div>
+                                <div class="s_website_form_field mb-3 col-md-6" data-type="email" data-name="email_from">
+                                    <label class="col-form-label" for="email_from">Email</label>
+                                    <input id="email_from" type="email" class="form-control s_website_form_input"
+                                           name="email_from" placeholder="email@example.com"/>
+                                </div>
+                                <div class="s_website_form_field mb-3 col-12" data-type="selection" data-name="x_website_service_type">
+                                    <label class="col-form-label" for="x_website_service_type">Тип услуги</label>
+                                    <select id="x_website_service_type" class="form-select s_website_form_input"
+                                            name="x_website_service_type" required="">
+                                        <option value="">Выберите услугу...</option>
+                                        <option value="install">Установка</option>
+                                        <option value="service">Обслуживание</option>
+                                        <option value="repair">Ремонт</option>
+                                    </select>
+                                </div>
+                                <div class="s_website_form_field mb-3 col-12" data-type="text" data-name="description">
+                                    <label class="col-form-label" for="description">Сообщение</label>
+                                    <textarea id="description" class="form-control s_website_form_input"
+                                              name="description" rows="4"
+                                              placeholder="Адрес, модель кондиционера, удобное время звонка..."/>
+                                </div>
+                                <div class="col-12 text-center">
+                                    <button type="submit" class="btn btn-primary btn-lg s_website_form_send">
+                                        Отправить заявку
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </template>
+
+</odoo>
