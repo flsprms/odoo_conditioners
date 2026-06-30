@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="conditioners_review_cards" name="Conditioners review cards">
+        <t t-set="reviews" t-value="reviews or request.env['conditioners.review'].search_published(limit=review_limit)"/>
+        <div class="row g-4">
+            <t t-if="not reviews">
+                <div class="col-12 text-center text-muted py-4">
+                    Отзывов пока нет. Добавьте их в админке: Website → Content → Отзывы.
+                </div>
+            </t>
+            <t t-foreach="reviews" t-as="review">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card shadow-sm h-100">
+                        <t t-if="review.image">
+                            <img
+                                class="card-img-top o_conditioners_review_img"
+                                t-att-src="'/web/image/conditioners.review/%s/image' % review.id"
+                                t-att-alt="review.name"
+                                loading="lazy"/>
+                        </t>
+                        <div class="card-body" t-if="review.review_text or review.name">
+                            <p t-if="review.review_text" class="card-text" t-out="review.review_text"/>
+                            <p class="text-muted mb-0">
+                                <strong t-out="review.name"/>
+                                <t t-if="review.city">, <span t-out="review.city"/></t>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </div>
+    </template>
+
+    <template id="s_conditioners_reviews_page" name="Conditioners Reviews Page">
+        <section class="s_conditioners_reviews_page pb48">
+            <div class="container">
+                <t t-call="website_conditioners.conditioners_review_cards"/>
+            </div>
+        </section>
+    </template>
+</odoo>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_conditioners_portfolio_upload_wizard" model="ir.ui.view">
+        <field name="name">conditioners.portfolio.upload.wizard.form</field>
+        <field name="model">conditioners.portfolio.upload.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Загрузить фото">
+                <group>
+                    <field name="attachment_ids" widget="many2many_binary" string="Фотографии"/>
+                </group>
+                <footer>
+                    <button name="action_upload" string="Загрузить" type="object" class="btn-primary"/>
+                    <button string="Отмена" special="cancel" class="btn-secondary"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_conditioners_portfolio_upload" model="ir.actions.act_window">
+        <field name="name">Загрузить фото</field>
+        <field name="res_model">conditioners.portfolio.upload.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <record id="view_conditioners_portfolio_list" model="ir.ui.view">
+        <field name="name">conditioners.portfolio.list</field>
+        <field name="model">conditioners.portfolio</field>
+        <field name="arch" type="xml">
+            <list string="Портфолио" default_order="sequence,id desc">
+                <header>
+                    <button name="%(website_conditioners.action_conditioners_portfolio_upload)d"
+                            type="action"
+                            string="Загрузить фото"
+                            class="btn-primary"
+                            display="always"/>
+                </header>
+                <field name="sequence" widget="handle"/>
+                <field name="image" widget="image" options="{'size': [96, 96]}"/>
+                <field name="is_published" widget="boolean_toggle"/>
+                <field name="website_id" groups="website.group_multi_website" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_conditioners_portfolio_form" model="ir.ui.view">
+        <field name="name">conditioners.portfolio.form</field>
+        <field name="model">conditioners.portfolio</field>
+        <field name="arch" type="xml">
+            <form string="Фото портфолио">
+                <sheet>
+                    <field name="image" widget="image" class="oe_avatar" options="{'preview_image': 'image'}"/>
+                    <group>
+                        <field name="sequence"/>
+                        <field name="is_published"/>
+                        <field name="website_id" groups="website.group_multi_website"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_conditioners_portfolio_search" model="ir.ui.view">
+        <field name="name">conditioners.portfolio.search</field>
+        <field name="model">conditioners.portfolio</field>
+        <field name="arch" type="xml">
+            <search string="Портфолио">
+                <filter string="На сайте" name="published" domain="[('is_published', '=', True)]"/>
+                <filter string="Скрыты" name="hidden" domain="[('is_published', '=', False)]"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_conditioners_portfolio" model="ir.actions.act_window">
+        <field name="name">Портфолио</field>
+        <field name="res_model">conditioners.portfolio</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{'search_default_published': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Добавьте фото выполненных работ
+            </p>
+            <p>
+                Нажмите «Загрузить фото» и выберите несколько снимков — они появятся на странице «Портфолио».
+            </p>
+        </field>
+    </record>
+
+    <menuitem
+        id="menu_conditioners_portfolio_backend"
+        name="Портфолио"
+        parent="website.menu_content"
+        action="action_conditioners_portfolio"
+        sequence="26"
+        groups="website.group_website_designer"/>
+</odoo>

@@ -28,42 +28,31 @@
                         <section class="pt48 pb24">
                             <div class="container">
                                 <h1>Услуги и цены</h1>
-                                <p class="lead text-muted">Профессиональный монтаж, обслуживание и ремонт климатического оборудования в Москве.</p>
+                                <p class="lead text-muted">Профессиональный монтаж, обслуживание и ремонт климатического оборудования в Томске.</p>
                             </div>
                         </section>
                         <t t-call="website_conditioners.s_conditioners_services"/>
                         <section class="pt24 pb48">
                             <div class="container">
                                 <div class="row g-4">
-                                    <div class="col-lg-4">
+                                    <div class="col-lg-6">
                                         <h3>Установка под ключ</h3>
                                         <ul>
-                                            <li>Разметка и крепление блоков</li>
                                             <li>Прокладка медной трассы</li>
                                             <li>Вакуумирование и запуск</li>
                                             <li>Инструктаж по эксплуатации</li>
+                                            <li>Сверление любой сложности</li>
                                         </ul>
                                         <p class="fw-bold text-primary">от 5 000 ₽</p>
                                     </div>
-                                    <div class="col-lg-4">
+                                    <div class="col-lg-6">
                                         <h3>Обслуживание</h3>
                                         <ul>
                                             <li>Чистка фильтров и теплообменника</li>
-                                            <li>Антибактериальная обработка</li>
+                                            <li>Чистка вентиляторов</li>
                                             <li>Проверка давления фреона</li>
-                                            <li>Диагностика электрики</li>
                                         </ul>
                                         <p class="fw-bold text-primary">от 2 500 ₽</p>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <h3>Ремонт</h3>
-                                        <ul>
-                                            <li>Диагностика на месте</li>
-                                            <li>Замена комплектующих</li>
-                                            <li>Устранение утечек фреона</li>
-                                            <li>Ремонт платы управления</li>
-                                        </ul>
-                                        <p class="fw-bold text-primary">от 1 500 ₽</p>
                                     </div>
                                 </div>
                             </div>
@@ -93,8 +82,8 @@
                                 <div class="row mt-4">
                                     <div class="col-lg-8">
                                         <p class="lead">
-                                            «Кондиционеры Про» — команда мастеров по монтажу и обслуживанию
-                                            кондиционеров в Москве и области.
+                                            «КлиматПрофи» — команда мастеров по монтажу и обслуживанию
+                                            кондиционеров в Томске.
                                         </p>
                                         <p>
                                             Мы работаем с квартирами, офисами и небольшими коммерческими объектами.
@@ -111,7 +100,6 @@
                                             <div class="card-body">
                                                 <h5 class="card-title">Наши преимущества</h5>
                                                 <ul class="mb-0">
-                                                    <li>Более 5 лет на рынке</li>
                                                     <li>Выезд в день обращения</li>
                                                     <li>Работаем без выходных</li>
                                                     <li>Официальный договор</li>
@@ -143,39 +131,7 @@
                         <section class="pt48 pb48">
                             <div class="container">
                                 <h1 class="mb-4">Наши работы</h1>
-                                <p class="text-muted mb-4">Примеры установленных кондиционеров (фото-заглушки, замените на реальные снимки).</p>
-                                <div class="row g-3">
-                                    <div class="col-md-4">
-                                        <div class="bg-primary o_conditioners_portfolio_img rounded d-flex align-items-center justify-content-center text-white shadow-sm">Фото 1</div>
-                                        <p class="mt-2 mb-0">Квартира, настенный блок 2.5 кВт</p>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="bg-primary o_conditioners_portfolio_img rounded d-flex align-items-center justify-content-center text-white shadow-sm">Фото 2</div>
-                                        <p class="mt-2 mb-0">Офис, кассетный блок</p>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="bg-primary o_conditioners_portfolio_img rounded d-flex align-items-center justify-content-center text-white shadow-sm">Фото 3</div>
-                                        <p class="mt-2 mb-0">Частный дом, мульти-сплит</p>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="bg-secondary o_conditioners_portfolio_img rounded d-flex align-items-center justify-content-center text-white">
-                                            Фото 4
-                                        </div>
-                                        <p class="mt-2 mb-0">Спальня, инверторная сплит-система</p>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="bg-secondary o_conditioners_portfolio_img rounded d-flex align-items-center justify-content-center text-white">
-                                            Фото 5
-                                        </div>
-                                        <p class="mt-2 mb-0">Кухня-гостиная, 3.5 кВт</p>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="bg-secondary o_conditioners_portfolio_img rounded d-flex align-items-center justify-content-center text-white">
-                                            Фото 6
-                                        </div>
-                                        <p class="mt-2 mb-0">Коммерческое помещение</p>
-                                    </div>
-                                </div>
+                                <t t-call="website_conditioners.conditioners_portfolio_gallery"/>
                             </div>
                         </section>
                     </div>
@@ -201,29 +157,8 @@
                                 <h1>Отзывы клиентов</h1>
                             </div>
                         </section>
-                        <t t-call="website_conditioners.s_conditioners_reviews"/>
-                        <section class="pb48">
-                            <div class="container">
-                                <div class="row g-4">
-                                    <div class="col-md-6">
-                                        <div class="card shadow-sm h-100">
-                                            <div class="card-body">
-                                                <p>«Заказывали установку двух кондиционеров — всё сделали аккуратно, мусор убрали.»</p>
-                                                <p class="text-muted mb-0"><strong>Ольга С.</strong></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="card shadow-sm h-100">
-                                            <div class="card-body">
-                                                <p>«Понравилось, что мастер объяснил, как пользоваться пультом и когда вызывать сервис.»</p>
-                                                <p class="text-muted mb-0"><strong>Игорь П.</strong></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
+                        <t t-set="review_limit" t-value="None"/>
+                        <t t-call="website_conditioners.s_conditioners_reviews_page"/>
                     </div>
                 </t>
             </t>
@@ -273,22 +208,12 @@
                                     </div>
                                     <div class="accordion-item">
                                         <h2 class="accordion-header">
-                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq7">
-                                                Какие бренды обслуживаете?
-                                            </button>
-                                        </h2>
-                                        <div id="faq7" class="accordion-collapse collapse" data-bs-parent="#conditionersFaqExtra">
-                                            <div class="accordion-body">Daikin, Mitsubishi, LG, Samsung, Ballu, Gree и другие популярные марки.</div>
-                                        </div>
-                                    </div>
-                                    <div class="accordion-item">
-                                        <h2 class="accordion-header">
                                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq8">
                                                 Как оформить заявку?
                                             </button>
                                         </h2>
                                         <div id="faq8" class="accordion-collapse collapse" data-bs-parent="#conditionersFaqExtra">
-                                            <div class="accordion-body">Заполните форму на сайте, позвоните по телефону или напишите в WhatsApp — перезвоним в течение 30 минут в рабочее время.</div>
+                                            <div class="accordion-body">Заполните форму на сайте, позвоните по телефону или напишите в MAX — перезвоним в течение 30 минут в рабочее время.</div>
                                         </div>
                                     </div>
                                 </div>
@@ -317,32 +242,18 @@
                                 <h1>Контакты</h1>
                                 <div class="row mt-4">
                                     <div class="col-lg-5">
-                                        <p class="lead">Кондиционеры Про</p>
-                                        <p><i class="fa fa-map-marker me-2"/> Москва и Московская область</p>
+                                        <p class="lead">КлиматПрофи</p>
+                                        <p><i class="fa fa-map-marker me-2"/> Томск</p>
                                         <p>
                                             <i class="fa fa-phone me-2"/>
-                                            <a href="tel:+79990000000">+7 (999) 000-00-00</a>
+                                            <a href="tel:+79234363777">+7 (923) 436-37-77</a>
                                         </p>
                                         <p>
-                                            <i class="fa fa-envelope me-2"/>
-                                            <a href="mailto:info@example.com">info@example.com</a>
-                                        </p>
-                                        <p>
-                                            <a href="https://wa.me/79990000000" class="btn btn-success" target="_blank" rel="noopener noreferrer">
-                                                <i class="fa fa-whatsapp me-1"/> Написать в WhatsApp
+                                            <a href="https://max.ru/@YOUR_MAX_LINK" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+                                                <i class="fa fa-comment me-1"/> Написать в MAX
                                             </a>
                                         </p>
                                         <p class="text-muted small">Пн–Вс: 9:00–21:00</p>
-                                    </div>
-                                    <div class="col-lg-7">
-                                        <div class="ratio ratio-16x9 rounded shadow-sm overflow-hidden">
-                                            <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Aplaceholder&amp;lang=ru_RU"
-                                                    title="Карта (заглушка)"
-                                                    style="border:0;"
-                                                    allowfullscreen=""
-                                                    loading="lazy"/>
-                                        </div>
-                                        <p class="text-muted small mt-2">Замените iframe на карту с вашим адресом в редакторе сайта.</p>
                                     </div>
                                 </div>
                             </div>

@@ -1,17 +1,27 @@
 {
     "name": "Website Conditioners",
     "summary": "Сайт-визитка для установки и обслуживания кондиционеров",
-    "version": "18.0.1.0.1",
+    "version": "18.0.1.0.3",
+    "sequence": -999,
     "category": "Website",
     "author": "Custom",
     "license": "LGPL-3",
     "depends": ["website", "website_crm", "crm"],
     "data": [
+        "security/ir.model.access.csv",
+        "security/conditioners_review_security.xml",
+        "security/conditioners_portfolio_security.xml",
         "data/website_crm_form.xml",
         "data/website_menu.xml",
-        "data/website_pages.xml",
-        "views/snippets.xml",
+        "data/website_menu_cleanup.xml",
         "templates/layout.xml",
+        "data/website_contact_cleanup.xml",
+        "data/website_pages.xml",
+        "views/conditioners_review_views.xml",
+        "views/conditioners_portfolio_views.xml",
+        "views/snippets.xml",
+        "templates/reviews.xml",
+        "templates/portfolio.xml",
     ],
     "assets": {
         "web._assets_primary_variables": [
@@ -19,8 +29,9 @@
         ],
         "web.assets_frontend": [
             "website_conditioners/static/src/scss/conditioners.scss",
+            "website_conditioners/static/src/js/portfolio_lightbox.js",
         ],
     },
     "installable": True,
-    "application": False,
+    "application": True,
 }

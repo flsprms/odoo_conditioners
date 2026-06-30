@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_conditioners_review_public,conditioners.review.public,model_conditioners_review,base.group_public,1,0,0,0
+access_conditioners_review_designer,conditioners.review.designer,model_conditioners_review,website.group_website_designer,1,1,1,1
+access_conditioners_portfolio_public,conditioners.portfolio.public,model_conditioners_portfolio,base.group_public,1,0,0,0
+access_conditioners_portfolio_designer,conditioners.portfolio.designer,model_conditioners_portfolio,website.group_website_designer,1,1,1,1
+access_conditioners_portfolio_upload_wizard,conditioners.portfolio.upload.wizard,model_conditioners_portfolio_upload_wizard,website.group_website_designer,1,1,1,1
+access_conditioners_website_cleanup,conditioners.website.cleanup,model_conditioners_website_cleanup,website.group_website_designer,1,1,1,1

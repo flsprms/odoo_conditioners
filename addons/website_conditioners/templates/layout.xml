@@ -3,13 +3,13 @@
     <template id="s_conditioners_topbar" name="Conditioners top bar">
         <div class="o_conditioners_topbar bg-dark text-white py-1">
             <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2 small">
-                <span>Москва · ежедневно 9:00–21:00</span>
+                <span>Томск · ежедневно 9:00–21:00</span>
                 <div class="d-flex flex-wrap gap-3">
                     <a href="tel:+79990000000" class="text-white text-decoration-none">
                         <i class="fa fa-phone me-1"/> +7 (999) 000-00-00
                     </a>
-                    <a href="https://wa.me/79990000000" class="text-white text-decoration-none" target="_blank" rel="noopener noreferrer">
-                        <i class="fa fa-whatsapp me-1"/> WhatsApp
+                    <a href="https://max.ru/@YOUR_MAX_LINK" class="text-white text-decoration-none" target="_blank" rel="noopener noreferrer">
+                        <i class="fa fa-comment me-1"/> MAX
                     </a>
                 </div>
             </div>
@@ -22,15 +22,25 @@
         </xpath>
     </template>
 
-    <template id="layout_whatsapp_float" inherit_id="website.layout" name="Conditioners WhatsApp float">
+    <template id="layout_no_footer" inherit_id="website.layout" name="Conditioners: remove default footer">
+        <xpath expr="//footer[@id='bottom']" position="replace"/>
+    </template>
+
+    <template id="header_call_to_action_remove" inherit_id="website.header_call_to_action" name="Conditioners: remove header CTA" priority="99">
+        <xpath expr="//a[hasclass('btn_cta')]" position="replace">
+            <a href="#" class="oe_unremovable btn btn-primary btn_cta d-none" aria-hidden="true" tabindex="-1"/>
+        </xpath>
+    </template>
+
+    <template id="layout_max_float" inherit_id="website.layout" name="Conditioners MAX float">
         <xpath expr="//div[@id='wrapwrap']" position="inside">
-            <a href="https://wa.me/79990000000"
-               class="o_conditioners_whatsapp_float d-none d-md-flex"
+            <a href="https://max.ru/@YOUR_MAX_LINK"
+               class="o_conditioners_max_float d-none d-md-flex"
                target="_blank"
                rel="noopener noreferrer"
-               aria-label="Написать в WhatsApp"
-               title="Написать в WhatsApp">
-                <i class="fa fa-whatsapp"/>
+               aria-label="Написать в MAX"
+               title="Написать в MAX">
+                <i class="fa fa-comment"/>
             </a>
         </xpath>
     </template>

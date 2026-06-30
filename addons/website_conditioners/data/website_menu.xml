@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo noupdate="1">
-    <record id="menu_conditioners_home" model="website.menu">
-        <field name="name">Главная</field>
-        <field name="url">/</field>
-        <field name="parent_id" ref="website.main_menu"/>
-        <field name="sequence" type="int">10</field>
-    </record>
     <record id="menu_conditioners_services" model="website.menu">
         <field name="name">Услуги</field>
         <field name="url">/uslugi</field>

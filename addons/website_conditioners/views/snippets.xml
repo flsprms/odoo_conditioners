@@ -8,7 +8,7 @@
                     <div class="col-lg-7">
                         <h1 class="display-4 fw-bold mb-3">Кондиционеры Про</h1>
                         <p class="lead mb-4">
-                            Установка и обслуживание кондиционеров в Москве.
+                            Установка и обслуживание кондиционеров в Томске.
                             Выезд мастера в день обращения, гарантия на работы.
                         </p>
                         <div class="d-flex flex-wrap gap-2">
@@ -16,8 +16,8 @@
                             <a href="tel:+79990000000" class="btn btn-outline-light btn-lg">
                                 <i class="fa fa-phone me-1"/> Позвонить
                             </a>
-                            <a href="https://wa.me/79990000000" class="btn btn-success btn-lg" target="_blank" rel="noopener noreferrer">
-                                <i class="fa fa-whatsapp me-1"/> WhatsApp
+                            <a href="https://max.ru/@YOUR_MAX_LINK" class="btn btn-primary btn-lg" target="_blank" rel="noopener noreferrer">
+                                <i class="fa fa-comment me-1"/> MAX
                             </a>
                         </div>
                     </div>
@@ -74,7 +74,7 @@
             <div class="container">
                 <h2 class="text-center mb-4">Наши услуги</h2>
                 <div class="row g-4">
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                         <div class="card h-100 shadow-sm">
                             <div class="card-body">
                                 <h5 class="card-title">Установка</h5>
@@ -83,21 +83,12 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                         <div class="card h-100 shadow-sm">
                             <div class="card-body">
                                 <h5 class="card-title">Обслуживание</h5>
                                 <p class="card-text">Чистка, дезинфекция, дозаправка фреоном, сезонная подготовка.</p>
                                 <p class="text-primary fw-bold mb-0">от 2 500 ₽</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card h-100 shadow-sm">
-                            <div class="card-body">
-                                <h5 class="card-title">Ремонт</h5>
-                                <p class="card-text">Диагностика неисправностей, замена комплектующих, восстановление работы.</p>
-                                <p class="text-primary fw-bold mb-0">от 1 500 ₽</p>
                             </div>
                         </div>
                     </div>
@@ -114,32 +105,8 @@
         <section class="s_conditioners_reviews pt48 pb48 bg-light">
             <div class="container">
                 <h2 class="text-center mb-4">Отзывы клиентов</h2>
-                <div class="row g-4">
-                    <div class="col-md-4">
-                        <div class="card shadow-sm">
-                            <div class="card-body">
-                                <p class="card-text">«Установили кондиционер за один визит, аккуратно, без грязи. Рекомендую!»</p>
-                                <p class="text-muted mb-0"><strong>Алексей М.</strong>, Москва</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card shadow-sm">
-                            <div class="card-body">
-                                <p class="card-text">«Делали сезонное обслуживание — теперь охлаждает как новый.»</p>
-                                <p class="text-muted mb-0"><strong>Марина К.</strong>, Москва</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card shadow-sm">
-                            <div class="card-body">
-                                <p class="card-text">«Быстро приехали на ремонт, всё объяснили и починили в тот же день.»</p>
-                                <p class="text-muted mb-0"><strong>Дмитрий В.</strong>, Москва</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <t t-set="review_limit" t-value="3"/>
+                <t t-call="website_conditioners.conditioners_review_cards"/>
                 <div class="text-center mt-4">
                     <a href="/otzyvy" class="btn btn-outline-primary">Все отзывы</a>
                 </div>

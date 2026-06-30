@@ -34,7 +34,7 @@
     gap: 0.75rem;
 }
 
-.o_conditioners_whatsapp_float {
+.o_conditioners_max_float {
     position: fixed;
     bottom: 1.5rem;
     right: 1.5rem;
@@ -45,7 +45,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #25d366;
+    background-color: #5b2eff;
     color: #fff;
     font-size: 1.75rem;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
@@ -59,6 +59,27 @@
 
 .o_conditioners_portfolio_img {
     aspect-ratio: 4 / 3;
+    object-fit: cover;
+    width: 100%;
+}
+
+.o_conditioners_portfolio_gallery .o_conditioners_portfolio_link {
+    cursor: zoom-in;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover {
+        transform: scale(1.02);
+    }
+}
+
+.o_conditioners_portfolio_modal_img {
+    max-height: 85vh;
+    width: auto;
+    max-width: 100%;
+}
+
+.o_conditioners_review_img {
+    aspect-ratio: 3 / 4;
     object-fit: cover;
     width: 100%;
 }

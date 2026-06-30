@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="conditioners_portfolio_gallery" name="Conditioners portfolio gallery">
+        <t t-set="photos" t-value="request.env['conditioners.portfolio'].search_published()"/>
+        <div class="o_conditioners_portfolio_gallery">
+            <div class="row g-3">
+                <t t-if="not photos">
+                    <div class="col-12 text-center text-muted py-4">
+                        Фотографий пока нет. Добавьте их в админке: Website → Content → Портфолио.
+                    </div>
+                </t>
+                <t t-foreach="photos" t-as="photo">
+                    <div class="col-md-4 col-lg-3">
+                        <a
+                            t-att-href="'/web/image/conditioners.portfolio/%s/image' % photo.id"
+                            class="o_conditioners_portfolio_link d-block shadow-sm rounded overflow-hidden"
+                            title="Открыть фото">
+                            <img
+                                class="o_conditioners_portfolio_img rounded"
+                                t-att-src="'/web/image/conditioners.portfolio/%s/image' % photo.id"
+                                alt="Наши работы"
+                                loading="lazy"/>
+                        </a>
+                    </div>
+                </t>
+            </div>
+            <div class="modal fade o_conditioners_portfolio_modal" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-xl">
+                    <div class="modal-content bg-dark border-0">
+                        <div class="modal-body p-2 position-relative text-center">
+                            <button
+                                type="button"
+                                class="btn-close btn-close-white position-absolute top-0 end-0 m-2"
+                                data-bs-dismiss="modal"
+                                aria-label="Закрыть"/>
+                            <button
+                                type="button"
+                                class="btn btn-dark o_conditioners_portfolio_prev position-absolute top-50 start-0 translate-middle-y ms-1 ms-md-2"
+                                aria-label="Предыдущее фото">
+                                <i class="fa fa-chevron-left"/>
+                            </button>
+                            <img class="o_conditioners_portfolio_modal_img img-fluid rounded" src="" alt="Наши работы"/>
+                            <button
+                                type="button"
+                                class="btn btn-dark o_conditioners_portfolio_next position-absolute top-50 end-0 translate-middle-y me-1 me-md-2"
+                                aria-label="Следующее фото">
+                                <i class="fa fa-chevron-right"/>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+</odoo>
