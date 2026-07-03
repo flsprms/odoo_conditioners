@@ -13,10 +13,10 @@
                         </p>
                         <div class="d-flex flex-wrap gap-2">
                             <a href="/kontakty" class="btn btn-light btn-lg">Оставить заявку</a>
-                            <a href="tel:+79990000000" class="btn btn-outline-light btn-lg">
+                            <a href="tel:+79234363777" class="btn btn-outline-light btn-lg">
                                 <i class="fa fa-phone me-1"/> Позвонить
                             </a>
-                            <a href="https://max.ru/@YOUR_MAX_LINK" class="btn btn-primary btn-lg" target="_blank" rel="noopener noreferrer">
+                            <a href="https://max.ru/u/f9LHodD0cOJzh6eAHpIDT9mzvkSp9EmSBi1vHEoy87x8iyjWudjwEMob-ds" class="btn btn-primary btn-lg" target="_blank" rel="noopener noreferrer">
                                 <i class="fa fa-comment me-1"/> MAX
                             </a>
                         </div>

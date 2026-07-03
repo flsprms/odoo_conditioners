@@ -5,10 +5,10 @@
             <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2 small">
                 <span>Томск · ежедневно 9:00–21:00</span>
                 <div class="d-flex flex-wrap gap-3">
-                    <a href="tel:+79990000000" class="text-white text-decoration-none">
-                        <i class="fa fa-phone me-1"/> +7 (999) 000-00-00
+                    <a href="tel:+79234363777" class="text-white text-decoration-none">
+                        <i class="fa fa-phone me-1"/> +7 (923) 436-37-77
                     </a>
-                    <a href="https://max.ru/@YOUR_MAX_LINK" class="text-white text-decoration-none" target="_blank" rel="noopener noreferrer">
+                    <a href="https://max.ru/u/f9LHodD0cOJzh6eAHpIDT9mzvkSp9EmSBi1vHEoy87x8iyjWudjwEMob-ds" class="text-white text-decoration-none" target="_blank" rel="noopener noreferrer">
                         <i class="fa fa-comment me-1"/> MAX
                     </a>
                 </div>
@@ -18,12 +18,38 @@
 
     <template id="layout_topbar" inherit_id="website.layout" name="Conditioners layout topbar">
         <xpath expr="//header" position="before">
+            <t t-set="no_footer" t-value="True"/>
             <t t-call="website_conditioners.s_conditioners_topbar"/>
         </xpath>
     </template>
 
-    <template id="layout_no_footer" inherit_id="website.layout" name="Conditioners: remove default footer">
-        <xpath expr="//footer[@id='bottom']" position="replace"/>
+    <template id="s_conditioners_footer" name="Conditioners footer">
+        <footer id="bottom" class="o_conditioners_footer bg-light border-top" data-anchor="true">
+            <div class="container py-4">
+                <div class="row align-items-center g-3">
+                    <div class="col-md-8 text-center text-md-start">
+                        <p class="mb-1 fw-semibold">ИП Шкляев Степан Павлович</p>
+                        <p class="mb-0 small text-muted">
+                            ИНН 701501246662 · ОГРНИП 326700000028721
+                        </p>
+                    </div>
+                    <div class="col-md-4 text-center text-md-end">
+                        <p class="mb-0 small text-muted">
+                            <a href="/kontakty" class="text-muted text-decoration-none">Контакты</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </template>
+
+    <!-- Старый view без футера — удаляем до добавления нового -->
+    <delete model="ir.ui.view" id="layout_no_footer"/>
+
+    <template id="layout_custom_footer" inherit_id="website.layout" name="Conditioners: custom footer">
+        <xpath expr="//div[@id='wrapwrap']/main" position="after">
+            <t t-call="website_conditioners.s_conditioners_footer"/>
+        </xpath>
     </template>
 
     <template id="header_call_to_action_remove" inherit_id="website.header_call_to_action" name="Conditioners: remove header CTA" priority="99">
@@ -34,7 +60,7 @@
 
     <template id="layout_max_float" inherit_id="website.layout" name="Conditioners MAX float">
         <xpath expr="//div[@id='wrapwrap']" position="inside">
-            <a href="https://max.ru/@YOUR_MAX_LINK"
+            <a href="https://max.ru/u/f9LHodD0cOJzh6eAHpIDT9mzvkSp9EmSBi1vHEoy87x8iyjWudjwEMob-ds"
                class="o_conditioners_max_float d-none d-md-flex"
                target="_blank"
                rel="noopener noreferrer"
