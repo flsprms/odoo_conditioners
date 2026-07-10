@@ -21,8 +21,13 @@
     }
 }
 
-.s_conditioners_reviews .card {
+.s_conditioners_reviews .card,
+.s_conditioners_reviews_page .card {
     height: 100%;
+}
+
+.o_conditioners_review_cards .card-text {
+    font-size: 1.05rem;
 }
 
 .s_conditioners_faq .accordion-button:not(.collapsed) {

@@ -2,14 +2,14 @@
 <odoo>
     <template id="conditioners_review_cards" name="Conditioners review cards">
         <t t-set="reviews" t-value="reviews or request.env['conditioners.review'].search_published(limit=review_limit)"/>
-        <div class="row g-4">
+        <div class="row g-4 o_conditioners_review_cards">
             <t t-if="not reviews">
                 <div class="col-12 text-center text-muted py-4">
                     Отзывов пока нет. Добавьте их в админке: Website → Content → Отзывы.
                 </div>
             </t>
             <t t-foreach="reviews" t-as="review">
-                <div class="col-md-6 col-lg-4">
+                <div class="col-6">
                     <div class="card shadow-sm h-100">
                         <t t-if="review.image">
                             <img
