@@ -1,7 +1,7 @@
 {
     "name": "Website Conditioners",
     "summary": "Сайт-визитка для установки и обслуживания кондиционеров",
-    "version": "18.0.1.0.4",
+    "version": "18.0.1.0.5",
     "sequence": -999,
     "category": "Website",
     "author": "Custom",

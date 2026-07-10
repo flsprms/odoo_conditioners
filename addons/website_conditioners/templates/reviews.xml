@@ -9,7 +9,7 @@
                 </div>
             </t>
             <t t-foreach="reviews" t-as="review">
-                <div class="col-6">
+                <div class="col-12 col-lg-6">
                     <div class="card shadow-sm h-100">
                         <t t-if="review.image">
                             <img
@@ -33,7 +33,7 @@
 
     <template id="s_conditioners_reviews_page" name="Conditioners Reviews Page">
         <section class="s_conditioners_reviews_page pb48">
-            <div class="container">
+            <div class="container o_conditioners_reviews_container">
                 <t t-call="website_conditioners.conditioners_review_cards"/>
             </div>
         </section>

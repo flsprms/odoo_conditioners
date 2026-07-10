@@ -32,4 +32,6 @@ class ConditionersWebsiteCleanup(models.TransientModel):
         if cta_views:
             cta_views.write({"active": True})
 
+        self.env["website"].sync_logo_from_companies()
+
         return True

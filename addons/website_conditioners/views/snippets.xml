@@ -103,7 +103,7 @@
     <!-- Reviews -->
     <template id="s_conditioners_reviews" name="Conditioners Reviews">
         <section class="s_conditioners_reviews pt48 pb48 bg-light">
-            <div class="container">
+            <div class="container o_conditioners_reviews_container">
                 <h2 class="text-center mb-4">Отзывы клиентов</h2>
                 <t t-set="review_limit" t-value="3"/>
                 <t t-call="website_conditioners.conditioners_review_cards"/>

@@ -10,7 +10,7 @@
                     </div>
                 </t>
                 <t t-foreach="photos" t-as="photo">
-                    <div class="col-6">
+                    <div class="col-12 col-md-6">
                         <div class="card shadow-sm h-100">
                             <a
                                 t-att-href="'/web/image/conditioners.portfolio/%s/image' % photo.id"

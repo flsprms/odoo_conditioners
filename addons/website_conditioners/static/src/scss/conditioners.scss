@@ -26,6 +26,27 @@
     height: 100%;
 }
 
+.o_conditioners_reviews_container {
+    @media (min-width: 992px) {
+        max-width: 1140px;
+    }
+
+    @media (min-width: 1200px) {
+        max-width: 1320px;
+    }
+
+    @media (min-width: 1400px) {
+        max-width: 1540px;
+    }
+}
+
+.o_conditioners_review_cards {
+    @media (min-width: 992px) {
+        --bs-gutter-x: 2rem;
+        --bs-gutter-y: 2rem;
+    }
+}
+
 .o_conditioners_review_cards .card-text {
     font-size: 1.05rem;
 }
