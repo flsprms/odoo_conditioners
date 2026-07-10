@@ -10,17 +10,23 @@
                     </div>
                 </t>
                 <t t-foreach="photos" t-as="photo">
-                    <div class="col-md-4 col-lg-3">
-                        <a
-                            t-att-href="'/web/image/conditioners.portfolio/%s/image' % photo.id"
-                            class="o_conditioners_portfolio_link d-block shadow-sm rounded overflow-hidden"
-                            title="Открыть фото">
-                            <img
-                                class="o_conditioners_portfolio_img rounded"
-                                t-att-src="'/web/image/conditioners.portfolio/%s/image' % photo.id"
-                                alt="Наши работы"
-                                loading="lazy"/>
-                        </a>
+                    <div class="col-6">
+                        <div class="card shadow-sm h-100">
+                            <a
+                                t-att-href="'/web/image/conditioners.portfolio/%s/image' % photo.id"
+                                t-att-data-caption="photo.description or ''"
+                                class="o_conditioners_portfolio_link d-block"
+                                title="Открыть фото">
+                                <img
+                                    class="o_conditioners_portfolio_img"
+                                    t-att-src="'/web/image/conditioners.portfolio/%s/image' % photo.id"
+                                    alt="Наши работы"
+                                    loading="lazy"/>
+                            </a>
+                            <div class="card-body" t-if="photo.description">
+                                <p class="card-text mb-0" t-out="photo.description"/>
+                            </div>
+                        </div>
                     </div>
                 </t>
             </div>
@@ -46,6 +52,7 @@
                                 aria-label="Следующее фото">
                                 <i class="fa fa-chevron-right"/>
                             </button>
+                            <p class="o_conditioners_portfolio_modal_caption text-white-50 small mt-2 mb-0 d-none"/>
                         </div>
                     </div>
                 </div>

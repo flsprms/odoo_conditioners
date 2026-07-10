@@ -14,6 +14,7 @@ class ConditionersPortfolio(models.Model):
         max_width=1920,
         max_height=1920,
     )
+    description = fields.Text(string="Описание")
     sequence = fields.Integer(default=10)
     is_published = fields.Boolean(string="На сайте", default=True)
     website_id = fields.Many2one(

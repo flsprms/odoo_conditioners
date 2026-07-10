@@ -57,31 +57,39 @@
     }
 }
 
-.o_conditioners_portfolio_img {
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
+.o_conditioners_media_img {
     width: 100%;
+    height: auto;
+    display: block;
+}
+
+.o_conditioners_portfolio_gallery .card,
+.s_conditioners_reviews .card,
+.s_conditioners_reviews_page .card {
+    overflow: hidden;
 }
 
 .o_conditioners_portfolio_gallery .o_conditioners_portfolio_link {
     cursor: zoom-in;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: opacity 0.2s ease;
 
     &:hover {
-        transform: scale(1.02);
+        opacity: 0.92;
     }
+}
+
+.o_conditioners_portfolio_img {
+    aspect-ratio: 1 / 1;
+    width: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 .o_conditioners_portfolio_modal_img {
     max-height: 85vh;
     width: auto;
     max-width: 100%;
-}
-
-.o_conditioners_review_img {
-    aspect-ratio: 3 / 4;
-    object-fit: cover;
-    width: 100%;
+    height: auto;
 }
 
 .o_conditioners_footer {

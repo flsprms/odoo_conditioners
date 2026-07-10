@@ -47,10 +47,16 @@ publicWidget.registry.ConditionersPortfolioLightbox = publicWidget.Widget.extend
         }
         const modalEl = this.el.querySelector(".modal");
         const imgEl = modalEl?.querySelector(".o_conditioners_portfolio_modal_img");
+        const captionEl = modalEl?.querySelector(".o_conditioners_portfolio_modal_caption");
         if (!modalEl || !imgEl) {
             return;
         }
         imgEl.src = link.getAttribute("href");
+        if (captionEl) {
+            const caption = link.dataset.caption || "";
+            captionEl.textContent = caption;
+            captionEl.classList.toggle("d-none", !caption);
+        }
         $(modalEl).modal("show");
     },
 });

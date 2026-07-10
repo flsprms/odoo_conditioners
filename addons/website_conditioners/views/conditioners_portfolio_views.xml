@@ -37,6 +37,7 @@
                 </header>
                 <field name="sequence" widget="handle"/>
                 <field name="image" widget="image" options="{'size': [96, 96]}"/>
+                <field name="description" optional="show"/>
                 <field name="is_published" widget="boolean_toggle"/>
                 <field name="website_id" groups="website.group_multi_website" optional="hide"/>
             </list>
@@ -50,6 +51,9 @@
             <form string="Фото портфолио">
                 <sheet>
                     <field name="image" widget="image" class="oe_avatar" options="{'preview_image': 'image'}"/>
+                    <group>
+                        <field name="description" placeholder="Краткое описание работы (необязательно)"/>
+                    </group>
                     <group>
                         <field name="sequence"/>
                         <field name="is_published"/>

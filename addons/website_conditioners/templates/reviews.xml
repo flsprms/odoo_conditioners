@@ -13,7 +13,7 @@
                     <div class="card shadow-sm h-100">
                         <t t-if="review.image">
                             <img
-                                class="card-img-top o_conditioners_review_img"
+                                class="card-img-top o_conditioners_media_img"
                                 t-att-src="'/web/image/conditioners.review/%s/image' % review.id"
                                 t-att-alt="review.name"
                                 loading="lazy"/>
