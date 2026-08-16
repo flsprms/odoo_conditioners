@@ -39,6 +39,13 @@ class ConditionersWebsiteCleanup(models.TransientModel):
         if homepage_view:
             homepage_view.write({"name": "Главная"})
 
+        thanks_pages = self.env["website.page"].search(
+            [("url", "=", "/contactus-thank-you")]
+        )
+        if thanks_pages:
+            thanks_pages.write({"name": "Спасибо"})
+            thanks_pages.mapped("view_id").filtered(lambda v: v).write({"name": "Спасибо"})
+
         text_views = self.env["ir.ui.view"].with_context(active_test=False).search(
             [
                 "|",

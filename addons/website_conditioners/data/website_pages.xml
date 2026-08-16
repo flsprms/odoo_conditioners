@@ -13,6 +13,26 @@
         </xpath>
     </template>
 
+    <template id="contactus_thanks_profimontazh" inherit_id="website.contactus_thanks" name="Profimontazh thank you page">
+        <xpath expr="//div[@id='wrap']" position="replace">
+            <div id="wrap" class="oe_structure">
+                <section class="pt48 pb48">
+                    <div class="container text-center">
+                        <i class="fa fa-paper-plane fa-2x mb-3 rounded-circle text-bg-success" role="presentation"/>
+                        <h1 class="fw-bolder">Спасибо!</h1>
+                        <p class="lead mb-0">Заявка отправлена.</p>
+                        <p class="lead">Перезвоним в течение 30 минут в рабочее время.</p>
+                        <a href="/" class="btn btn-primary">На главную</a>
+                    </div>
+                </section>
+            </div>
+        </xpath>
+    </template>
+
+    <record id="website.contactus_thanks" model="website.page">
+        <field name="name">Спасибо</field>
+    </record>
+
     <!-- Услуги -->
     <record id="page_uslugi" model="website.page">
         <field name="name">Услуги</field>
