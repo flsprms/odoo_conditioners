@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="service_montage" model="conditioners.service">
+        <field name="name">Монтаж под ключ</field>
+        <field name="icon">fa-wrench</field>
+        <field name="price_from">от 5 000 ₽</field>
+        <field name="sequence">10</field>
+        <field name="is_published" eval="True"/>
+        <field name="show_on_homepage" eval="True"/>
+        <field name="description" type="html">
+            <p>Монтаж оборудования и инженерных систем: установка, крепление, подключение и пусконаладка. Работаем в квартирах, частных домах и коммерческих помещениях.</p>
+        </field>
+    </record>
+    <record id="service_electro" model="conditioners.service">
+        <field name="name">Электромонтаж</field>
+        <field name="icon">fa-bolt</field>
+        <field name="price_from">от 3 500 ₽</field>
+        <field name="sequence">20</field>
+        <field name="is_published" eval="True"/>
+        <field name="show_on_homepage" eval="True"/>
+        <field name="description" type="html">
+            <p>Прокладка кабеля, розетки и выключатели, щиты, освещение, подключение бытовой техники. Соблюдаем нормы безопасности и аккуратно закрываем штробы.</p>
+        </field>
+    </record>
+    <record id="service_climate" model="conditioners.service">
+        <field name="name">Установка климатического оборудования</field>
+        <field name="icon">fa-cogs</field>
+        <field name="price_from">от 5 000 ₽</field>
+        <field name="sequence">30</field>
+        <field name="is_published" eval="True"/>
+        <field name="show_on_homepage" eval="True"/>
+        <field name="description" type="html">
+            <p>Монтаж кондиционеров и другой климатической техники: трасса, крепление блоков, вакуумирование и запуск. Подскажем по размещению и мощности.</p>
+        </field>
+    </record>
+    <record id="service_maintenance" model="conditioners.service">
+        <field name="name">Обслуживание и ремонт</field>
+        <field name="icon">fa-refresh</field>
+        <field name="price_from">от 2 500 ₽</field>
+        <field name="sequence">40</field>
+        <field name="is_published" eval="True"/>
+        <field name="show_on_homepage" eval="False"/>
+        <field name="description" type="html">
+            <p>Диагностика, ремонт и сезонное обслуживание смонтированного оборудования. Фиксируем стоимость до начала работ.</p>
+        </field>
+    </record>
+</odoo>

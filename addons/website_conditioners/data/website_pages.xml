@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <!-- Главная: переопределение стандартной homepage -->
-    <template id="conditioners_homepage" inherit_id="website.homepage" name="Conditioners Homepage">
+    <template id="conditioners_homepage" inherit_id="website.homepage" name="Profimontazh Homepage">
         <xpath expr="//div[@id='wrap']" position="replace">
             <div id="wrap" class="oe_structure oe_empty">
                 <t t-call="website_conditioners.s_conditioners_hero"/>
@@ -28,33 +28,13 @@
                         <section class="pt48 pb24">
                             <div class="container">
                                 <h1>Услуги и цены</h1>
-                                <p class="lead text-muted">Профессиональный монтаж, обслуживание и ремонт климатического оборудования в Томске.</p>
+                                <p class="lead text-muted">Монтаж, электромонтаж и установка оборудования в Томске. Состав и цены можно уточнить при заявке.</p>
                             </div>
                         </section>
-                        <t t-call="website_conditioners.s_conditioners_services"/>
-                        <section class="pt24 pb48">
+                        <section class="s_conditioners_services pb48">
                             <div class="container">
-                                <div class="row g-4">
-                                    <div class="col-lg-6">
-                                        <h3>Установка под ключ</h3>
-                                        <ul>
-                                            <li>Прокладка медной трассы</li>
-                                            <li>Вакуумирование и запуск</li>
-                                            <li>Инструктаж по эксплуатации</li>
-                                            <li>Сверление любой сложности</li>
-                                        </ul>
-                                        <p class="fw-bold text-primary">от 5 000 ₽</p>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <h3>Обслуживание</h3>
-                                        <ul>
-                                            <li>Чистка фильтров и теплообменника</li>
-                                            <li>Чистка вентиляторов</li>
-                                            <li>Проверка давления фреона</li>
-                                        </ul>
-                                        <p class="fw-bold text-primary">от 2 500 ₽</p>
-                                    </div>
-                                </div>
+                                <t t-set="service_homepage_only" t-value="False"/>
+                                <t t-call="website_conditioners.conditioners_service_cards"/>
                             </div>
                         </section>
                         <t t-call="website_conditioners.s_conditioners_contact_form"/>
@@ -82,21 +62,19 @@
                                 <div class="row mt-4">
                                     <div class="col-lg-8">
                                         <p class="lead">
-                                            «КлиматПрофи» — команда мастеров по монтажу и обслуживанию
-                                            кондиционеров в Томске.
+                                            «ПрофиМонтаж» — команда мастеров по монтажу и электромонтажу в Томске.
                                         </p>
                                         <p>
-                                            Мы работаем с квартирами, офисами и небольшими коммерческими объектами.
-                                            Подбираем оптимальное место для блоков, соблюдаем нормы безопасности
-                                            и даём понятные рекомендации по эксплуатации.
+                                            Работаем с квартирами, частными домами и небольшими коммерческими объектами:
+                                            установка оборудования, прокладка трасс и кабеля, подключение и пусконаладка.
                                         </p>
                                         <p>
-                                            Все работы выполняются с договором и гарантией. Используем профессиональный
-                                            инструмент и расходные материалы, подходящие для вашей модели оборудования.
+                                            Все работы выполняем с договором и гарантией. Используем профессиональный
+                                            инструмент и расходные материалы, заранее согласовываем смету.
                                         </p>
                                     </div>
                                     <div class="col-lg-4">
-                                        <div class="card shadow-sm">
+                                        <div class="card shadow-sm o_conditioners_about_card">
                                             <div class="card-body">
                                                 <h5 class="card-title">Наши преимущества</h5>
                                                 <ul class="mb-0">
@@ -177,46 +155,12 @@
             <t name="FAQ" t-name="website_conditioners.page_faq">
                 <t t-call="website.layout">
                     <div id="wrap" class="oe_structure">
-                        <section class="pt48 pb24">
+                        <section class="s_conditioners_faq pt48 pb48">
                             <div class="container">
-                                <h1>Частые вопросы</h1>
-                            </div>
-                        </section>
-                        <t t-call="website_conditioners.s_conditioners_faq"/>
-                        <section class="pb48">
-                            <div class="container">
-                                <div class="accordion" id="conditionersFaqExtra">
-                                    <div class="accordion-item">
-                                        <h2 class="accordion-header">
-                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
-                                                Можно ли установить кондиционер зимой?
-                                            </button>
-                                        </h2>
-                                        <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#conditionersFaqExtra">
-                                            <div class="accordion-body">Да, монтаж возможен круглый год. Запуск и проверку холодопроизводительности при необходимости проводим в тёплый сезон.</div>
-                                        </div>
-                                    </div>
-                                    <div class="accordion-item">
-                                        <h2 class="accordion-header">
-                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq6">
-                                                Вы помогаете с выбором модели?
-                                            </button>
-                                        </h2>
-                                        <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#conditionersFaqExtra">
-                                            <div class="accordion-body">Да, подскажем по мощности и типу системы исходя из площади помещения и особенностей планировки.</div>
-                                        </div>
-                                    </div>
-                                    <div class="accordion-item">
-                                        <h2 class="accordion-header">
-                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq8">
-                                                Как оформить заявку?
-                                            </button>
-                                        </h2>
-                                        <div id="faq8" class="accordion-collapse collapse" data-bs-parent="#conditionersFaqExtra">
-                                            <div class="accordion-body">Заполните форму на сайте, позвоните по телефону или напишите в MAX — перезвоним в течение 30 минут в рабочее время.</div>
-                                        </div>
-                                    </div>
-                                </div>
+                                <h1 class="mb-4">Частые вопросы</h1>
+                                <t t-set="faq_homepage_only" t-value="False"/>
+                                <t t-set="faq_accordion_id" t-value="'conditionersFaqPage'"/>
+                                <t t-call="website_conditioners.conditioners_faq_accordion"/>
                             </div>
                         </section>
                     </div>
@@ -237,28 +181,41 @@
             <t name="Контакты" t-name="website_conditioners.page_kontakty">
                 <t t-call="website.layout">
                     <div id="wrap" class="oe_structure">
-                        <section class="pt48 pb24">
+                        <section class="o_conditioners_contacts pt48 pb48">
                             <div class="container">
-                                <h1>Контакты</h1>
-                                <div class="row mt-4">
+                                <h1 class="text-center mb-4">Контакты</h1>
+                                <div class="row g-4 align-items-stretch">
                                     <div class="col-lg-5">
-                                        <p class="lead">КлиматПрофи</p>
-                                        <p><i class="fa fa-map-marker me-2"/> Томск</p>
-                                        <p>
-                                            <i class="fa fa-phone me-2"/>
-                                            <a href="tel:+79234363777">+7 (923) 436-37-77</a>
-                                        </p>
-                                        <p>
-                                            <a href="https://max.ru/u/f9LHodD0cOJzh6eAHpIDT9mzvkSp9EmSBi1vHEoy87x8iyjWudjwEMob-ds" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
-                                                <i class="fa fa-comment me-1"/> Написать в MAX
-                                            </a>
-                                        </p>
-                                        <p class="text-muted small">Пн–Вс: 9:00–21:00</p>
+                                        <div class="card shadow-sm h-100 o_conditioners_contact_card">
+                                            <div class="card-body p-4">
+                                                <p class="h4 mb-3">ПрофиМонтаж</p>
+                                                <p class="mb-3">
+                                                    <i class="fa fa-map-marker me-2 text-primary"/> Томск
+                                                </p>
+                                                <p class="mb-3">
+                                                    <i class="fa fa-phone me-2 text-primary"/>
+                                                    <a href="tel:+79234363777" class="text-decoration-none">+7 (923) 436-37-77</a>
+                                                </p>
+                                                <p class="mb-3 text-muted">
+                                                    <i class="fa fa-clock-o me-2 text-primary"/> Пн–Вс: 9:00–21:00
+                                                </p>
+                                                <a href="https://max.ru/u/f9LHodD0cOJzh6eAHpIDT9mzvkSp9EmSBi1vHEoy87x8iyjWudjwEMob-ds" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+                                                    <i class="fa fa-comment me-1"/> Написать в MAX
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-7">
+                                        <div class="card shadow-sm h-100 o_conditioners_contact_form_card">
+                                            <div class="card-body p-4">
+                                                <t t-set="contact_form_embedded" t-value="True"/>
+                                                <t t-call="website_conditioners.s_conditioners_contact_form"/>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </section>
-                        <t t-call="website_conditioners.s_conditioners_contact_form"/>
                     </div>
                 </t>
             </t>

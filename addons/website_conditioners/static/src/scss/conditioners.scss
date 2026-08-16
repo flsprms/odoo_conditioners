@@ -1,24 +1,86 @@
-.o_conditioners_topbar a:hover {
-    opacity: 0.85;
+$o-conditioners-slate: #1a2332;
+$o-conditioners-slate-mid: #243044;
+$o-conditioners-amber: #d97706;
+$o-conditioners-amber-dark: #b45309;
+
+.o_conditioners_topbar {
+    background-color: $o-conditioners-slate !important;
+
+    a:hover {
+        opacity: 0.85;
+    }
 }
 
 .s_conditioners_hero {
-    background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 50%, #084298 100%);
+    background: linear-gradient(135deg, $o-conditioners-slate 0%, $o-conditioners-slate-mid 55%, #2c3a52 100%);
     color: #fff;
 
     h1,
     .lead {
         color: #fff;
     }
+
+    .o_conditioners_hero_kicker {
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        color: rgba(255, 255, 255, 0.75);
+    }
+
+    .o_conditioners_hero_icons {
+        color: $o-conditioners-amber;
+        opacity: 0.9;
+    }
+
+    .btn-outline-light:hover {
+        color: $o-conditioners-slate;
+    }
 }
 
-.s_conditioners_services .card {
+.s_conditioners_advantages {
+    background: #f4f1ea;
+
+    .o_conditioners_advantage .fa {
+        color: $o-conditioners-amber;
+    }
+}
+
+.s_conditioners_services .o_conditioners_service_card {
+    border: 0;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 
     &:hover {
         transform: translateY(-4px);
-        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.12);
+        box-shadow: 0 0.75rem 1.5rem rgba(26, 35, 50, 0.12);
     }
+}
+
+.o_conditioners_service_icon {
+    flex-shrink: 0;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 0.75rem;
+    background: rgba($o-conditioners-amber, 0.12);
+    color: $o-conditioners-amber-dark;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+}
+
+.o_conditioners_service_price {
+    font-weight: 700;
+    color: $o-conditioners-amber-dark;
+}
+
+.o_conditioners_service_desc {
+    p:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.s_conditioners_reviews {
+    background: #f4f1ea;
 }
 
 .s_conditioners_reviews .card,
@@ -52,8 +114,14 @@
 }
 
 .s_conditioners_faq .accordion-button:not(.collapsed) {
-    background-color: rgba(13, 110, 253, 0.08);
-    color: #0d6efd;
+    background-color: rgba($o-conditioners-amber, 0.12);
+    color: $o-conditioners-amber-dark;
+}
+
+.o_conditioners_contact_card,
+.o_conditioners_contact_form_card,
+.o_conditioners_about_card {
+    border: 0;
 }
 
 .o_conditioners_header_contacts {
@@ -120,4 +188,14 @@
 
 .o_conditioners_footer {
     margin-top: auto;
+}
+
+// Fallback if a header template variant skips our QWeb inherits
+header#top {
+    .o_searchbar_form,
+    a[data-bs-target="#o_search_modal"],
+    a[href*="1555-555"],
+    a[href*="/web/login"] {
+        display: none !important;
+    }
 }

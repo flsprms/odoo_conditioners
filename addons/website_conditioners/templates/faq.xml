@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="conditioners_faq_accordion" name="Profimontazh FAQ accordion">
+        <t t-set="faqs" t-value="faqs or request.env['conditioners.faq'].search_published(homepage_only=faq_homepage_only)"/>
+        <t t-set="faq_accordion_id" t-value="faq_accordion_id or 'conditionersFaq'"/>
+        <t t-if="not faqs">
+            <p class="text-center text-muted py-4 mb-0">
+                Вопросов пока нет. Добавьте их в админке: Website → Content → Частые вопросы.
+            </p>
+        </t>
+        <div t-else="" class="accordion" t-att-id="faq_accordion_id">
+            <t t-foreach="faqs" t-as="faq">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" t-attf-id="heading-faq-#{faq.id}">
+                        <button t-attf-class="accordion-button #{'' if faq_index == 0 else 'collapsed'}"
+                                type="button"
+                                data-bs-toggle="collapse"
+                                t-attf-data-bs-target="#collapse-faq-#{faq.id}"
+                                t-att-aria-expanded="faq_index == 0 and 'true' or 'false'"
+                                t-attf-aria-controls="collapse-faq-#{faq.id}"
+                                t-out="faq.name"/>
+                    </h2>
+                    <div t-attf-id="collapse-faq-#{faq.id}"
+                         t-attf-class="accordion-collapse collapse #{'show' if faq_index == 0 else ''}"
+                         t-attf-data-bs-parent="##{faq_accordion_id}">
+                        <div class="accordion-body" t-out="faq.answer"/>
+                    </div>
+                </div>
+            </t>
+        </div>
+    </template>
+</odoo>

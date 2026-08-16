@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="faq_duration" model="conditioners.faq">
+        <field name="name">Сколько времени занимают работы?</field>
+        <field name="sequence">10</field>
+        <field name="is_published" eval="True"/>
+        <field name="show_on_homepage" eval="True"/>
+        <field name="answer" type="html">
+            <p>Зависит от объёма: точечный электромонтаж или установка одного прибора — несколько часов, комплексный монтаж на объекте — согласовываем срок заранее.</p>
+        </field>
+    </record>
+    <record id="faq_approval" model="conditioners.faq">
+        <field name="name">Нужно ли согласование работ?</field>
+        <field name="sequence">20</field>
+        <field name="is_published" eval="True"/>
+        <field name="show_on_homepage" eval="True"/>
+        <field name="answer" type="html">
+            <p>Для большинства квартир достаточно согласования с управляющей компанией, если затрагиваются фасад или общедомовые сети. Подскажем, что именно нужно согласовать в вашем случае.</p>
+        </field>
+    </record>
+    <record id="faq_outside_city" model="conditioners.faq">
+        <field name="name">Выезжаете ли вы за город?</field>
+        <field name="sequence">30</field>
+        <field name="is_published" eval="True"/>
+        <field name="show_on_homepage" eval="True"/>
+        <field name="answer" type="html">
+            <p>Работаем по Томску и ближайшим районам. Выезд за город обсуждаем при заявке.</p>
+        </field>
+    </record>
+    <record id="faq_warranty" model="conditioners.faq">
+        <field name="name">Даёте ли вы гарантию?</field>
+        <field name="sequence">40</field>
+        <field name="is_published" eval="True"/>
+        <field name="show_on_homepage" eval="True"/>
+        <field name="answer" type="html">
+            <p>Да, на монтажные и электромонтажные работы предоставляется гарантия. Срок фиксируем в договоре.</p>
+        </field>
+    </record>
+    <record id="faq_winter" model="conditioners.faq">
+        <field name="name">Работаете ли вы зимой?</field>
+        <field name="sequence">50</field>
+        <field name="is_published" eval="True"/>
+        <field name="show_on_homepage" eval="False"/>
+        <field name="answer" type="html">
+            <p>Да, большинство монтажных и электромонтажных работ выполняем круглый год. Особенности объекта уточняем при заявке.</p>
+        </field>
+    </record>
+    <record id="faq_estimate" model="conditioners.faq">
+        <field name="name">Можно ли вызвать мастера на оценку?</field>
+        <field name="sequence">60</field>
+        <field name="is_published" eval="True"/>
+        <field name="show_on_homepage" eval="False"/>
+        <field name="answer" type="html">
+            <p>Да, по сложным объектам выезжаем на место, оцениваем объём и называем стоимость до начала работ.</p>
+        </field>
+    </record>
+    <record id="faq_request" model="conditioners.faq">
+        <field name="name">Как оформить заявку?</field>
+        <field name="sequence">70</field>
+        <field name="is_published" eval="True"/>
+        <field name="show_on_homepage" eval="False"/>
+        <field name="answer" type="html">
+            <p>Заполните форму на сайте, позвоните по телефону или напишите в MAX — перезвоним в течение 30 минут в рабочее время.</p>
+        </field>
+    </record>
+</odoo>

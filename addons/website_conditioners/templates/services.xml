@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="conditioners_service_cards" name="Profimontazh service cards">
+        <t t-set="services" t-value="services or request.env['conditioners.service'].search_published(homepage_only=service_homepage_only)"/>
+        <div class="row g-4 o_conditioners_service_cards">
+            <t t-if="not services">
+                <div class="col-12 text-center text-muted py-4">
+                    Услуг пока нет. Добавьте их в админке: Website → Content → Услуги.
+                </div>
+            </t>
+            <t t-foreach="services" t-as="service">
+                <div class="col-md-6 col-lg-6">
+                    <div class="card h-100 shadow-sm o_conditioners_service_card">
+                        <t t-if="service.image">
+                            <img
+                                class="card-img-top o_conditioners_media_img"
+                                t-att-src="'/web/image/conditioners.service/%s/image' % service.id"
+                                t-att-alt="service.name"
+                                loading="lazy"/>
+                        </t>
+                        <div class="card-body">
+                            <div class="d-flex align-items-start gap-3 mb-2">
+                                <t t-if="service.icon and not service.image">
+                                    <span class="o_conditioners_service_icon">
+                                        <i t-attf-class="fa #{service.icon}" t-att-title="service.name"/>
+                                    </span>
+                                </t>
+                                <div class="flex-grow-1">
+                                    <h5 class="card-title mb-1" t-out="service.name"/>
+                                    <p t-if="service.price_from" class="o_conditioners_service_price mb-0" t-out="service.price_from"/>
+                                </div>
+                            </div>
+                            <div t-if="service.description" class="card-text text-muted o_conditioners_service_desc" t-out="service.description"/>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </div>
+    </template>
+</odoo>

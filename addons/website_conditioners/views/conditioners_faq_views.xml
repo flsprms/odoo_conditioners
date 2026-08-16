@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_conditioners_faq_list" model="ir.ui.view">
+        <field name="name">conditioners.faq.list</field>
+        <field name="model">conditioners.faq</field>
+        <field name="arch" type="xml">
+            <list string="Частые вопросы" default_order="sequence,id">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="show_on_homepage" widget="boolean_toggle"/>
+                <field name="is_published" widget="boolean_toggle"/>
+                <field name="website_id" groups="website.group_multi_website" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_conditioners_faq_form" model="ir.ui.view">
+        <field name="name">conditioners.faq.form</field>
+        <field name="model">conditioners.faq</field>
+        <field name="arch" type="xml">
+            <form string="Вопрос">
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1>
+                            <field name="name" placeholder="Сколько времени занимают работы?"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="sequence"/>
+                            <field name="is_published"/>
+                        </group>
+                        <group>
+                            <field name="show_on_homepage"/>
+                            <field name="website_id" groups="website.group_multi_website"/>
+                        </group>
+                    </group>
+                    <group string="Ответ">
+                        <field name="answer" nolabel="1" colspan="2"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_conditioners_faq_search" model="ir.ui.view">
+        <field name="name">conditioners.faq.search</field>
+        <field name="model">conditioners.faq</field>
+        <field name="arch" type="xml">
+            <search string="Частые вопросы">
+                <field name="name"/>
+                <filter string="На сайте" name="published" domain="[('is_published', '=', True)]"/>
+                <filter string="На главной" name="homepage" domain="[('show_on_homepage', '=', True)]"/>
+                <filter string="Скрыты" name="hidden" domain="[('is_published', '=', False)]"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_conditioners_faq" model="ir.actions.act_window">
+        <field name="name">Частые вопросы</field>
+        <field name="res_model">conditioners.faq</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{'search_default_published': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Добавьте вопрос
+            </p>
+            <p>
+                Укажите вопрос и ответ. Опубликованные записи появятся на странице FAQ;
+                отмеченные «На главной» — в блоке на главной, если он выведен.
+            </p>
+        </field>
+    </record>
+
+    <menuitem
+        id="menu_conditioners_faq_backend"
+        name="Частые вопросы"
+        parent="website.menu_content"
+        action="action_conditioners_faq"
+        sequence="26"
+        groups="website.group_website_designer"/>
+</odoo>

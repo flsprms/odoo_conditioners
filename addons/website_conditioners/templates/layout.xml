@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <template id="s_conditioners_topbar" name="Conditioners top bar">
-        <div class="o_conditioners_topbar bg-dark text-white py-1">
+        <div class="o_conditioners_topbar text-white py-1">
             <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2 small">
                 <span>Томск · ежедневно 9:00–21:00</span>
                 <div class="d-flex flex-wrap gap-3">
@@ -52,9 +52,30 @@
         </xpath>
     </template>
 
-    <template id="header_call_to_action_remove" inherit_id="website.header_call_to_action" name="Conditioners: remove header CTA" priority="99">
+    <template id="header_call_to_action_remove" inherit_id="website.header_call_to_action" name="Profimontazh: remove header CTA" priority="99">
         <xpath expr="//a[hasclass('btn_cta')]" position="replace">
             <a href="#" class="oe_unremovable btn btn-primary btn_cta d-none" aria-hidden="true" tabindex="-1"/>
+        </xpath>
+    </template>
+
+    <template id="header_search_box_hide" inherit_id="website.header_search_box" name="Profimontazh: hide header search" priority="99">
+        <xpath expr="//li" position="attributes">
+            <attribute name="class" add="d-none" separator=" "/>
+            <attribute name="aria-hidden">true</attribute>
+        </xpath>
+    </template>
+
+    <template id="header_text_element_hide" inherit_id="website.header_text_element" name="Profimontazh: hide header demo phone" priority="99">
+        <xpath expr="//li" position="attributes">
+            <attribute name="class" add="d-none" separator=" "/>
+            <attribute name="aria-hidden">true</attribute>
+        </xpath>
+    </template>
+
+    <template id="user_sign_in_hide" inherit_id="portal.user_sign_in" name="Profimontazh: hide sign in" priority="99">
+        <xpath expr="//li" position="attributes">
+            <attribute name="class" add="d-none" separator=" "/>
+            <attribute name="aria-hidden">true</attribute>
         </xpath>
     </template>
 

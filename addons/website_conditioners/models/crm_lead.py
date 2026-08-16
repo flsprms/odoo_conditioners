@@ -6,9 +6,10 @@ class CrmLead(models.Model):
 
     x_website_service_type = fields.Selection(
         selection=[
-            ("install", "Установка"),
+            ("montage", "Монтаж"),
+            ("electro", "Электромонтаж"),
             ("service", "Обслуживание"),
-            ("repair", "Ремонт"),
+            ("other", "Другое"),
         ],
         string="Тип услуги с сайта",
     )

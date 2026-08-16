@@ -8,6 +8,11 @@
     <field name="name">Главная</field>
   </record>
 
+  <!-- Заголовок вкладки: «Главная | компания», а не Home -->
+  <record id="website.homepage" model="ir.ui.view">
+    <field name="name">Главная</field>
+  </record>
+
   <!-- Удаляем стандартный пункт Contact us из меню -->
   <delete model="website.menu" id="menu_contactus"/>
 

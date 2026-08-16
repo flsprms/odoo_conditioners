@@ -32,6 +32,13 @@ class ConditionersWebsiteCleanup(models.TransientModel):
         if cta_views:
             cta_views.write({"active": True})
 
+        homepage_pages = self.env["website.page"].search([("url", "=", "/")])
+        if homepage_pages:
+            homepage_pages.write({"name": "Главная"})
+        homepage_view = self.env.ref("website.homepage", raise_if_not_found=False)
+        if homepage_view:
+            homepage_view.write({"name": "Главная"})
+
         self.env["website"].sync_logo_from_companies()
 
         return True
