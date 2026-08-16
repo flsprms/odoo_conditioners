@@ -1,7 +1,7 @@
 {
     "name": "Website Conditioners",
     "summary": "Сайт-визитка ПрофиМонтаж: монтаж и электромонтаж",
-    "version": "18.0.1.2.1",
+    "version": "18.0.1.2.2",
     "sequence": -999,
     "category": "Website",
     "author": "Custom",
@@ -37,6 +37,10 @@
         ],
         "web.assets_backend": [
             "website_conditioners/static/src/js/portfolio_upload.js",
+        ],
+        "web.assets_frontend": [
+            "website_conditioners/static/src/scss/conditioners.scss",
+            "website_conditioners/static/src/js/portfolio_lightbox.js",
         ],
     },
     "installable": True,

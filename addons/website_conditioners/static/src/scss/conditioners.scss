@@ -60,7 +60,7 @@ $o-conditioners-amber-dark: #b45309;
     width: 2.75rem;
     height: 2.75rem;
     border-radius: 0.75rem;
-    background: rgba($o-conditioners-amber, 0.12);
+    background: rgba(217, 119, 6, 0.12);
     color: $o-conditioners-amber-dark;
     display: inline-flex;
     align-items: center;
@@ -102,19 +102,12 @@ $o-conditioners-amber-dark: #b45309;
     }
 }
 
-.o_conditioners_review_cards {
-    @media (min-width: 992px) {
-        --bs-gutter-x: 2rem;
-        --bs-gutter-y: 2rem;
-    }
-}
-
 .o_conditioners_review_cards .card-text {
     font-size: 1.05rem;
 }
 
 .s_conditioners_faq .accordion-button:not(.collapsed) {
-    background-color: rgba($o-conditioners-amber, 0.12);
+    background-color: rgba(217, 119, 6, 0.12);
     color: $o-conditioners-amber-dark;
 }
 
