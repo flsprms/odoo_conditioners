@@ -49,6 +49,12 @@ class ConditionersWebsiteCleanup(models.TransientModel):
         if text_views:
             text_views.write({"active": False})
 
+        hide_views = self.env["ir.ui.view"].with_context(active_test=False).search(
+            [("key", "in", ["website.header_search_box", "portal.user_sign_in"])]
+        )
+        if hide_views:
+            hide_views.write({"active": False})
+
         self.env["website"].sync_logo_from_companies()
 
         return True

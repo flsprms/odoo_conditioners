@@ -59,9 +59,8 @@
     </template>
 
     <template id="header_search_box_hide" inherit_id="website.header_search_box" name="Profimontazh: hide header search" priority="99">
-        <xpath expr="//li" position="attributes">
-            <attribute name="class" add="d-none" separator=" "/>
-            <attribute name="aria-hidden">true</attribute>
+        <xpath expr="//li" position="replace">
+            <li class="d-none" aria-hidden="true"/>
         </xpath>
     </template>
 
@@ -72,9 +71,8 @@
     </template>
 
     <template id="user_sign_in_hide" inherit_id="portal.user_sign_in" name="Profimontazh: hide sign in" priority="99">
-        <xpath expr="//li" position="attributes">
-            <attribute name="class" add="d-none" separator=" "/>
-            <attribute name="aria-hidden">true</attribute>
+        <xpath expr="//li" position="replace">
+            <li class="d-none" groups="base.group_public" aria-hidden="true"/>
         </xpath>
     </template>
 
