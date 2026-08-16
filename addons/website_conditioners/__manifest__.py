@@ -35,9 +35,8 @@
         "web._assets_primary_variables": [
             "website_conditioners/static/src/scss/primary_variables.scss",
         ],
-        "web.assets_frontend": [
-            "website_conditioners/static/src/scss/conditioners.scss",
-            "website_conditioners/static/src/js/portfolio_lightbox.js",
+        "web.assets_backend": [
+            "website_conditioners/static/src/js/portfolio_upload.js",
         ],
     },
     "installable": True,

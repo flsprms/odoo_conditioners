@@ -5,8 +5,15 @@
         <field name="model">conditioners.portfolio.upload.wizard</field>
         <field name="arch" type="xml">
             <form string="Загрузить фото">
+                <div class="alert alert-info" role="alert">
+                    Можно выбрать сразу много фото — они уйдут на сервер по одному.
+                    Если ошибка всё же появится, загрузите оставшиеся снимки второй пачкой.
+                </div>
                 <group>
-                    <field name="attachment_ids" widget="many2many_binary" string="Фотографии"/>
+                    <field name="attachment_ids"
+                           widget="portfolio_many2many_binary"
+                           options="{'accepted_file_extensions': 'image/*'}"
+                           string="Фотографии"/>
                 </group>
                 <footer>
                     <button name="action_upload" string="Загрузить" type="object" class="btn-primary"/>
