@@ -4,19 +4,13 @@ from odoo import models
 class Website(models.Model):
     _inherit = "website"
 
-    def _uses_default_logo(self):
-        self.ensure_one()
-        default_logo = self._default_logo()
-        return not self.logo or self.logo == default_logo
-
     def sync_logo_from_company(self):
-        """Copy company logo to website header when website still has the Odoo placeholder."""
+        """Copy company logo into the website header (`website.logo`)."""
         for website in self:
             company = website.company_id
             if not company or company.uses_default_logo or not company.logo:
                 continue
-            if website._uses_default_logo():
-                website.sudo().write({"logo": company.logo})
+            website.sudo().write({"logo": company.logo})
 
     def sync_logo_from_companies(self):
         companies = self.env["res.company"].search([("uses_default_logo", "=", False)])
