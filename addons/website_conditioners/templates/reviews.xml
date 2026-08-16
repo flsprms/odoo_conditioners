@@ -15,14 +15,17 @@
                             <img
                                 class="card-img-top o_conditioners_media_img"
                                 t-att-src="'/web/image/conditioners.review/%s/image' % review.id"
-                                t-att-alt="review.name"
+                                t-att-alt="review.name or 'Отзыв'"
                                 loading="lazy"/>
                         </t>
-                        <div class="card-body" t-if="review.review_text or review.name">
+                        <div class="card-body" t-if="review.review_text or review.name or review.city">
                             <p t-if="review.review_text" class="card-text" t-out="review.review_text"/>
-                            <p class="text-muted mb-0">
-                                <strong t-out="review.name"/>
-                                <t t-if="review.city">, <span t-out="review.city"/></t>
+                            <p t-if="review.name or review.city" class="text-muted mb-0">
+                                <strong t-if="review.name" t-out="review.name"/>
+                                <t t-if="review.city">
+                                    <t t-if="review.name">, </t>
+                                    <span t-out="review.city"/>
+                                </t>
                             </p>
                         </div>
                     </div>

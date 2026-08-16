@@ -7,7 +7,7 @@ class ConditionersReview(models.Model):
     _description = "Customer review"
     _order = "sequence, id desc"
 
-    name = fields.Char(string="Имя клиента", required=True)
+    name = fields.Char(string="Имя клиента")
     city = fields.Char(string="Город")
     review_text = fields.Text(string="Текст отзыва")
     image = fields.Image(string="Фото отзыва", max_width=1920, max_height=1920)
@@ -30,6 +30,11 @@ class ConditionersReview(models.Model):
                 ("website_id", "=", website.id),
             ]
         return domain
+
+    @api.depends("name")
+    def _compute_display_name(self):
+        for rec in self:
+            rec.display_name = rec.name or "Отзыв"
 
     @api.model
     def search_published(self, limit=None):
