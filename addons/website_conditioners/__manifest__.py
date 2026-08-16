@@ -1,7 +1,7 @@
 {
     "name": "Website Conditioners",
     "summary": "Сайт-визитка ПрофиМонтаж: монтаж и электромонтаж",
-    "version": "18.0.1.2.2",
+    "version": "18.0.1.2.3",
     "sequence": -999,
     "category": "Website",
     "author": "Custom",
