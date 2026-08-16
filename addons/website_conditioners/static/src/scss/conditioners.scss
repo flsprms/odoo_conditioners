@@ -190,12 +190,18 @@ $o-conditioners-amber-dark: #b45309;
     margin-top: auto;
 }
 
-// Fallback if a header template variant skips our QWeb inherits
-header#top {
+header#top,
+#wrapwrap header {
     .o_searchbar_form,
     a[data-bs-target="#o_search_modal"],
-    a[href*="1555-555"],
     a[href*="/web/login"] {
+        display: none !important;
+    }
+
+    // Демо-номер Odoo: href = "tel:+1 555-555-5556" (пробел после +1)
+    a[href*="555-555-5556"],
+    li:has(a[href*="555-555-5556"]),
+    .s_text_block:has(a[href*="555-555-5556"]) {
         display: none !important;
     }
 }

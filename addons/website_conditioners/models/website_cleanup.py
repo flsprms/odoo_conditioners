@@ -39,6 +39,16 @@ class ConditionersWebsiteCleanup(models.TransientModel):
         if homepage_view:
             homepage_view.write({"name": "Главная"})
 
+        text_views = self.env["ir.ui.view"].with_context(active_test=False).search(
+            [
+                "|",
+                ("key", "=", "website.header_text_element"),
+                ("key", "like", "website.header_text_element_%"),
+            ]
+        )
+        if text_views:
+            text_views.write({"active": False})
+
         self.env["website"].sync_logo_from_companies()
 
         return True

@@ -66,9 +66,8 @@
     </template>
 
     <template id="header_text_element_hide" inherit_id="website.header_text_element" name="Profimontazh: hide header demo phone" priority="99">
-        <xpath expr="//li" position="attributes">
-            <attribute name="class" add="d-none" separator=" "/>
-            <attribute name="aria-hidden">true</attribute>
+        <xpath expr="//li" position="replace">
+            <li class="d-none" aria-hidden="true"/>
         </xpath>
     </template>
 

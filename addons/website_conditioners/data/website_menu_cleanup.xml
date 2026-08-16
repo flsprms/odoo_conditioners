@@ -16,8 +16,8 @@
   <!-- Удаляем стандартный пункт Contact us из меню -->
   <delete model="website.menu" id="menu_contactus"/>
 
-  <!-- Placeholder обязателен для t-call в шапке -->
-  <record id="website.placeholder_header_call_to_action" model="ir.ui.view">
-    <field name="active" eval="True"/>
+  <!-- Отключаем демо-телефон/текст в стандартной шапке Odoo -->
+  <record id="website.header_text_element" model="ir.ui.view">
+    <field name="active" eval="False"/>
   </record>
 </odoo>
