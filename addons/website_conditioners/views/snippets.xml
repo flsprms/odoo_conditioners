@@ -91,8 +91,11 @@
     <template id="s_conditioners_reviews" name="Profimontazh Reviews">
         <section class="s_conditioners_reviews pt48 pb48">
             <div class="container o_conditioners_reviews_container">
-                <h2 class="text-center mb-4">Отзывы клиентов</h2>
-                <t t-set="review_limit" t-value="3"/>
+                <h2 class="text-center mb-3">Отзывы клиентов</h2>
+                <div class="text-center mb-4">
+                    <t t-call="website_conditioners.conditioners_avito_reviews_btn"/>
+                </div>
+                <t t-set="review_limit" t-value="4"/>
                 <t t-call="website_conditioners.conditioners_review_cards"/>
                 <div class="text-center mt-4">
                     <a href="/otzyvy" class="btn btn-outline-primary">Все отзывы</a>

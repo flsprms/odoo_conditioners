@@ -13,25 +13,17 @@
         </xpath>
     </template>
 
-    <template id="contactus_thanks_profimontazh" inherit_id="website.contactus_thanks" name="Profimontazh thank you page">
-        <xpath expr="//div[@id='wrap']" position="replace">
-            <div id="wrap" class="oe_structure">
-                <section class="pt48 pb48">
-                    <div class="container text-center">
-                        <i class="fa fa-paper-plane fa-2x mb-3 rounded-circle text-bg-success" role="presentation"/>
-                        <h1 class="fw-bolder">Спасибо!</h1>
-                        <p class="lead mb-0">Заявка отправлена.</p>
-                        <p class="lead">Перезвоним в течение 30 минут в рабочее время.</p>
-                        <a href="/" class="btn btn-primary">На главную</a>
-                    </div>
-                </section>
+    <template id="s_conditioners_thanks" name="Profimontazh thank you">
+        <section class="pt48 pb48">
+            <div class="container text-center">
+                <i class="fa fa-paper-plane fa-2x mb-3 rounded-circle text-bg-success" role="presentation"/>
+                <h1 class="fw-bolder">Спасибо!</h1>
+                <p class="lead mb-0">Заявка отправлена.</p>
+                <p class="lead">Перезвоним в течение 30 минут в рабочее время.</p>
+                <a href="/" class="btn btn-primary">На главную</a>
             </div>
-        </xpath>
+        </section>
     </template>
-
-    <record id="website.contactus_thanks" model="website.page">
-        <field name="name">Спасибо</field>
-    </record>
 
     <!-- Услуги -->
     <record id="page_uslugi" model="website.page">
@@ -151,8 +143,11 @@
                 <t t-call="website.layout">
                     <div id="wrap" class="oe_structure">
                         <section class="pt48 pb24">
-                            <div class="container">
-                                <h1>Отзывы клиентов</h1>
+                            <div class="container o_conditioners_reviews_container">
+                                <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-md-between gap-3 mb-2">
+                                    <h1 class="mb-0">Отзывы клиентов</h1>
+                                    <t t-call="website_conditioners.conditioners_avito_reviews_btn"/>
+                                </div>
                             </div>
                         </section>
                         <t t-set="review_limit" t-value="None"/>

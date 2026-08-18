@@ -39,12 +39,24 @@ class ConditionersWebsiteCleanup(models.TransientModel):
         if homepage_view:
             homepage_view.write({"name": "Главная"})
 
-        thanks_pages = self.env["website.page"].search(
-            [("url", "=", "/contactus-thank-you")]
+        thanks_pages = self.env["website.page"].with_context(active_test=False).search(
+            [
+                "|",
+                ("url", "=", "/contactus-thank-you"),
+                ("key", "=", "website.contactus_thanks"),
+            ]
         )
-        if thanks_pages:
-            thanks_pages.write({"name": "Спасибо"})
-            thanks_pages.mapped("view_id").filtered(lambda v: v).write({"name": "Спасибо"})
+        thanks_arch = """<t name="Спасибо" t-name="website.contactus_thanks">
+                <t t-call="website.layout">
+                    <div id="wrap" class="oe_structure">
+                        <t t-call="website_conditioners.s_conditioners_thanks"/>
+                    </div>
+                </t>
+            </t>"""
+        for page in thanks_pages:
+            page.write({"name": "Спасибо", "arch": thanks_arch})
+            if page.view_id:
+                page.view_id.write({"name": "Спасибо"})
 
         text_views = self.env["ir.ui.view"].with_context(active_test=False).search(
             [

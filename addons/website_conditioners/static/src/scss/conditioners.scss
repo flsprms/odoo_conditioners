@@ -106,6 +106,24 @@ $o-conditioners-amber-dark: #b45309;
     font-size: 1.05rem;
 }
 
+.o_conditioners_avito_btn {
+    background-color: #00aaef;
+    border-color: #00aaef;
+    color: #fff;
+    font-weight: 600;
+    padding: 0.65rem 1.35rem;
+    border-radius: 2rem;
+    box-shadow: 0 0.35rem 0.85rem rgba(0, 170, 239, 0.28);
+
+    &:hover,
+    &:focus {
+        background-color: #0095d1;
+        border-color: #0095d1;
+        color: #fff;
+        box-shadow: 0 0.45rem 1rem rgba(0, 149, 209, 0.35);
+    }
+}
+
 .s_conditioners_faq .accordion-button:not(.collapsed) {
     background-color: rgba(217, 119, 6, 0.12);
     color: $o-conditioners-amber-dark;

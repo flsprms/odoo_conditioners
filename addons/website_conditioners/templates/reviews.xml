@@ -34,6 +34,16 @@
         </div>
     </template>
 
+    <template id="conditioners_avito_reviews_btn" name="Avito reviews button">
+        <a href="https://www.avito.ru/brands/53782212c6135a0c3055c65d6df63cf6"
+           class="btn o_conditioners_avito_btn"
+           target="_blank"
+           rel="noopener noreferrer">
+            <i class="fa fa-star me-2" aria-hidden="true"/>
+            Отзывы на Авито
+        </a>
+    </template>
+
     <template id="s_conditioners_reviews_page" name="Conditioners Reviews Page">
         <section class="s_conditioners_reviews_page pb48">
             <div class="container o_conditioners_reviews_container">
