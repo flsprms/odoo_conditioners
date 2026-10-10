@@ -1,7 +1,7 @@
 {
     "name": "Website Conditioners",
-    "summary": "Сайт-визитка ТомскМонтаж: монтаж и электромонтаж",
-    "version": "18.0.1.2.3",
+    "summary": "Сайт-визитка ВашМонтаж: монтаж и электромонтаж",
+    "version": "18.0.1.2.4",
     "sequence": -999,
     "category": "Website",
     "author": "Custom",
