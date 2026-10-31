@@ -1,7 +1,7 @@
 {
     "name": "Website Conditioners",
     "summary": "Сайт-визитка ВашМонтаж: монтаж и электромонтаж",
-    "version": "18.0.1.2.4",
+    "version": "18.0.1.3.1",
     "sequence": -999,
     "category": "Website",
     "author": "Custom",
@@ -15,7 +15,6 @@
         "security/conditioners_faq_security.xml",
         "data/website_crm_form.xml",
         "data/website_menu.xml",
-        "data/website_menu_cleanup.xml",
         "data/conditioners_service_data.xml",
         "data/conditioners_faq_data.xml",
         "templates/layout.xml",
@@ -30,6 +29,7 @@
         "views/conditioners_service_views.xml",
         "views/conditioners_faq_views.xml",
         "views/snippets.xml",
+        "views/website_views.xml",
     ],
     "assets": {
         "web._assets_primary_variables": [

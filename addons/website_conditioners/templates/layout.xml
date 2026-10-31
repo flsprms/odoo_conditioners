@@ -5,10 +5,10 @@
             <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2 small">
                 <span>Томск · ежедневно 9:00–21:00</span>
                 <div class="d-flex flex-wrap gap-3">
-                    <a href="tel:+79234363777" class="text-white text-decoration-none">
-                        <i class="fa fa-phone me-1"/> +7 (923) 436-37-77
+                    <a t-if="website.contact_phone_href" t-attf-href="tel:#{website.contact_phone_href}" class="text-white text-decoration-none">
+                        <i class="fa fa-phone me-1"/> <t t-out="website.contact_phone"/>
                     </a>
-                    <a href="https://max.ru/u/f9LHodD0cOJzh6eAHpIDT9mzvkSp9EmSBi1vHEoy87x8iyjWudjwEMob-ds" class="text-white text-decoration-none" target="_blank" rel="noopener noreferrer">
+                    <a t-if="website.contact_max_url" t-att-href="website.contact_max_url" class="text-white text-decoration-none" target="_blank" rel="noopener noreferrer">
                         <i class="fa fa-comment me-1"/> MAX
                     </a>
                 </div>
@@ -43,9 +43,6 @@
         </footer>
     </template>
 
-    <!-- Старый view без футера — удаляем до добавления нового -->
-    <delete model="ir.ui.view" id="layout_no_footer"/>
-
     <template id="layout_custom_footer" inherit_id="website.layout" name="Conditioners: custom footer">
         <xpath expr="//div[@id='wrapwrap']/main" position="after">
             <t t-call="website_conditioners.s_conditioners_footer"/>
@@ -78,7 +75,8 @@
 
     <template id="layout_max_float" inherit_id="website.layout" name="Conditioners MAX float">
         <xpath expr="//div[@id='wrapwrap']" position="inside">
-            <a href="https://max.ru/u/f9LHodD0cOJzh6eAHpIDT9mzvkSp9EmSBi1vHEoy87x8iyjWudjwEMob-ds"
+            <a t-if="website.contact_max_url"
+               t-att-href="website.contact_max_url"
                class="o_conditioners_max_float d-none d-md-flex"
                target="_blank"
                rel="noopener noreferrer"
@@ -89,22 +87,30 @@
         </xpath>
     </template>
 
-    <template id="layout_yandex_metrika" inherit_id="web.layout" name="Yandex Metrika">
+    <!--
+        Метрика только на публичном сайте (website.layout) и только для посетителей:
+        сотрудники, вошедшие в Odoo, не попадают в статистику и Вебвизор
+        (иначе записываются экраны CRM с данными клиентов).
+    -->
+    <template id="layout_yandex_metrika" inherit_id="website.layout" name="Yandex Metrika">
         <xpath expr="//head" position="inside">
-            <script type="text/javascript" t-ignore="true">
-                (function(m,e,t,r,i,k,a){
-                    m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-                    m[i].l=1*new Date();
-                    for (var j = 0; j &lt; document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-                    k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
-                })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=111660917', 'ym');
-                ym(111660917, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
-            </script>
-            <noscript>
-                <div>
-                    <img src="https://mc.yandex.ru/watch/111660917" style="position:absolute; left:-9999px;" alt=""/>
-                </div>
-            </noscript>
+            <t t-set="metrika_id" t-value="website and website.yandex_metrika_id"/>
+            <t t-if="metrika_id and not request.env.user._is_internal() and not request.httprequest.path.startswith('/web/')">
+                <script type="text/javascript">
+                    (function(m,e,t,r,i,k,a){
+                        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+                        m[i].l=1*new Date();
+                        for (var j = 0; j &lt; document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+                        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+                    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=<t t-out="metrika_id"/>', 'ym');
+                    ym(<t t-out="metrika_id"/>, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+                </script>
+                <noscript>
+                    <div>
+                        <img t-attf-src="https://mc.yandex.ru/watch/#{metrika_id}" style="position:absolute; left:-9999px;" alt=""/>
+                    </div>
+                </noscript>
+            </t>
         </xpath>
     </template>
 </odoo>

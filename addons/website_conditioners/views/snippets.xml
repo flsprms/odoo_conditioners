@@ -7,20 +7,28 @@
                 <div class="row align-items-center">
                     <div class="col-lg-7">
                         <p class="o_conditioners_hero_kicker mb-2">Томск · монтаж и электромонтаж</p>
-                        <h1 class="display-4 fw-bold mb-3">ВашМонтаж</h1>
+                        <h1 class="display-4 fw-bold mb-3">Монтаж и электромонтаж в Томске</h1>
                         <p class="lead mb-4">
-                            Монтаж, электромонтаж и установка оборудования.
-                            Выезд мастера в день обращения, договор и гарантия на работы.
+                            Устанавливаем кондиционеры, выполняем электромонтаж и другие работы по дому.
+                            Согласуем стоимость до начала работ.
                         </p>
+                        <ul class="o_conditioners_hero_points list-unstyled d-flex flex-wrap gap-2 mb-4">
+                            <li><i class="fa fa-check-circle me-1"/> Выезд по Томску</li>
+                            <li><i class="fa fa-check-circle me-1"/> Договор и гарантия</li>
+                            <li><i class="fa fa-check-circle me-1"/> Работаем ежедневно</li>
+                        </ul>
                         <div class="d-flex flex-wrap gap-2">
-                            <a href="/kontakty" class="btn btn-primary btn-lg">Оставить заявку</a>
-                            <a href="tel:+79234363777" class="btn btn-outline-light btn-lg">
+                            <a href="#order_form" class="btn btn-primary btn-lg">Оставить заявку</a>
+                            <a t-if="website.contact_phone_href" t-attf-href="tel:#{website.contact_phone_href}" class="btn btn-outline-light btn-lg">
                                 <i class="fa fa-phone me-1"/> Позвонить
                             </a>
-                            <a href="https://max.ru/u/f9LHodD0cOJzh6eAHpIDT9mzvkSp9EmSBi1vHEoy87x8iyjWudjwEMob-ds" class="btn btn-outline-light btn-lg" target="_blank" rel="noopener noreferrer">
+                            <a t-if="website.contact_max_url" t-att-href="website.contact_max_url" class="btn btn-outline-light btn-lg" target="_blank" rel="noopener noreferrer">
                                 <i class="fa fa-comment me-1"/> MAX
                             </a>
                         </div>
+                        <a href="#services" class="o_conditioners_hero_scroll d-inline-flex align-items-center mt-4">
+                            Посмотреть услуги и цены <i class="fa fa-arrow-down ms-2"/>
+                        </a>
                     </div>
                     <div class="col-lg-5 d-none d-lg-flex justify-content-center gap-4 o_conditioners_hero_icons">
                         <i class="fa fa-wrench fa-4x" title="Монтаж"/>
@@ -73,7 +81,7 @@
 
     <!-- Services cards from admin -->
     <template id="s_conditioners_services" name="Profimontazh Services">
-        <section class="s_conditioners_services pt48 pb48">
+        <section id="services" class="s_conditioners_services pt48 pb48">
             <div class="container">
                 <h2 class="text-center mb-4">Наши услуги</h2>
                 <t t-set="service_homepage_only" t-value="True"/>
@@ -122,7 +130,9 @@
 
     <!-- Contact form -->
     <template id="s_conditioners_contact_form" name="Profimontazh Contact Form">
-        <section t-attf-class="s_website_form #{'' if contact_form_embedded else 'pt48 pb48'}" data-snippet="s_website_form" data-name="Форма заявки">
+        <section t-attf-class="s_website_form #{'' if contact_form_embedded else 'pt48 pb48'}"
+                 t-att-id="None if contact_form_embedded else 'order_form'"
+                 data-snippet="s_website_form" data-name="Форма заявки">
             <div t-attf-class="#{'' if contact_form_embedded else 'container'}">
                 <div t-attf-class="row #{'' if contact_form_embedded else 'justify-content-center'}">
                     <div t-attf-class="#{'' if contact_form_embedded else 'col-lg-8'}">

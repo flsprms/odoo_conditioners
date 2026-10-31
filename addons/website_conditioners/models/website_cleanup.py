@@ -32,6 +32,10 @@ class ConditionersWebsiteCleanup(models.TransientModel):
         if cta_views:
             cta_views.write({"active": True})
 
+        home_menu = self.env.ref("website.menu_home", raise_if_not_found=False)
+        if home_menu:
+            home_menu.write({"name": "Главная"})
+
         homepage_pages = self.env["website.page"].search([("url", "=", "/")])
         if homepage_pages:
             homepage_pages.write({"name": "Главная"})

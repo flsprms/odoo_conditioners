@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_website_form_contacts" model="ir.ui.view">
+        <field name="name">website.form.contacts</field>
+        <field name="model">website</field>
+        <field name="inherit_id" ref="website.view_website_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='domain']" position="after">
+                <group name="site_contacts" string="Контакты и аналитика">
+                    <field name="contact_phone" placeholder="+7 (999) 000-00-00"/>
+                    <field name="contact_max_url" placeholder="https://max.ru/..."/>
+                    <field name="yandex_metrika_id" placeholder="12345678"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

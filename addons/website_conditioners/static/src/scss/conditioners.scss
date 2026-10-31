@@ -223,3 +223,168 @@ $o-conditioners-amber-dark: #b45309;
 .o_conditioners_footer {
     margin-top: auto;
 }
+
+// Keep the public pages comfortable to use on narrow touch screens.
+@media (max-width: 767.98px) {
+    .o_conditioners_topbar {
+        padding: 0.45rem 0.75rem !important;
+
+        > .container {
+            display: grid !important;
+            grid-template-columns: 1fr;
+            justify-items: center;
+            gap: 0.35rem !important;
+            text-align: center;
+            line-height: 1.25;
+        }
+
+        > .container > div {
+            justify-content: center;
+            gap: 1rem !important;
+        }
+
+        a {
+            white-space: nowrap;
+        }
+    }
+
+    #wrapwrap > header {
+        background: $o-conditioners-slate !important;
+        border: 0 !important;
+        box-shadow: none !important;
+
+        .navbar,
+        .o_main_nav {
+            min-height: 3.25rem;
+            padding-top: 0.25rem !important;
+            padding-bottom: 0.25rem !important;
+            background: transparent !important;
+            border: 0 !important;
+            box-shadow: none !important;
+        }
+
+        .navbar-brand img {
+            max-height: 2.35rem;
+            width: auto;
+            background: #fff;
+            border-radius: 0.4rem;
+            padding: 0.15rem;
+        }
+
+        .navbar-toggler {
+            margin-left: auto;
+            min-width: 2.75rem;
+            min-height: 2.75rem;
+            color: #fff !important;
+            border-color: rgba(255, 255, 255, 0.55) !important;
+
+            .navbar-toggler-icon {
+                filter: brightness(0) invert(1);
+            }
+        }
+
+        .navbar-collapse,
+        .navbar-nav,
+        .nav-link,
+        .navbar-brand {
+            color: #fff !important;
+        }
+    }
+
+    .o_conditioners_topbar {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+    }
+
+    .s_conditioners_hero {
+        padding-top: 2.25rem !important;
+        padding-bottom: 2rem !important;
+        scroll-margin-top: 4rem;
+
+        h1 {
+            font-size: clamp(2.1rem, 9vw, 3rem);
+            line-height: 1.08;
+            overflow-wrap: anywhere;
+        }
+
+        .lead {
+            font-size: 1rem;
+            line-height: 1.45;
+            margin-bottom: 1rem !important;
+        }
+
+        .o_conditioners_hero_points {
+            display: grid !important;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.55rem 0.75rem !important;
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 1.25rem !important;
+        }
+
+        .o_conditioners_hero_points li:last-child {
+            grid-column: 1 / -1;
+        }
+
+        .o_conditioners_hero_points .fa {
+            color: #f5a623;
+        }
+
+        .d-flex.flex-wrap.gap-2 {
+            display: grid !important;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .d-flex.flex-wrap.gap-2 .btn:first-child {
+            grid-column: 1 / -1;
+        }
+
+        .d-flex.flex-wrap.gap-2 .btn {
+            min-height: 3rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            white-space: nowrap;
+        }
+
+        .o_conditioners_hero_scroll {
+            color: rgba(255, 255, 255, 0.82);
+            font-size: 0.9rem;
+            text-decoration: underline;
+            text-underline-offset: 0.2em;
+        }
+    }
+
+    .s_conditioners_advantages,
+    .s_conditioners_services,
+    .s_conditioners_reviews,
+    .s_conditioners_faq {
+        padding-top: 2.75rem !important;
+        padding-bottom: 2.75rem !important;
+    }
+
+    .o_conditioners_service_cards > [class*="col-"] {
+        width: 100%;
+    }
+
+    .s_website_form .form-control,
+    .s_website_form .form-select {
+        min-height: 3rem;
+        font-size: 1rem;
+    }
+
+    .s_website_form textarea.form-control {
+        min-height: 7rem;
+    }
+
+    .s_website_form .s_website_form_send {
+        width: 100%;
+        min-height: 3.25rem;
+    }
+
+    .o_conditioners_max_float {
+        bottom: 1rem;
+        right: 1rem;
+        width: 3.25rem;
+        height: 3.25rem;
+    }
+}

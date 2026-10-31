@@ -203,18 +203,18 @@
                                     <div class="col-lg-5">
                                         <div class="card shadow-sm h-100 o_conditioners_contact_card">
                                             <div class="card-body p-4">
-                                                <p class="h4 mb-3">ВашМонтаж</p>
+                                                <p class="h4 mb-3"><t t-out="website.name"/></p>
                                                 <p class="mb-3">
                                                     <i class="fa fa-map-marker me-2 text-primary"/> Томск
                                                 </p>
-                                                <p class="mb-3">
+                                                <p class="mb-3" t-if="website.contact_phone_href">
                                                     <i class="fa fa-phone me-2 text-primary"/>
-                                                    <a href="tel:+79234363777" class="text-decoration-none">+7 (923) 436-37-77</a>
+                                                    <a t-attf-href="tel:#{website.contact_phone_href}" class="text-decoration-none"><t t-out="website.contact_phone"/></a>
                                                 </p>
                                                 <p class="mb-3 text-muted">
                                                     <i class="fa fa-clock-o me-2 text-primary"/> Пн–Вс: 9:00–21:00
                                                 </p>
-                                                <a href="https://max.ru/u/f9LHodD0cOJzh6eAHpIDT9mzvkSp9EmSBi1vHEoy87x8iyjWudjwEMob-ds" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+                                                <a t-if="website.contact_max_url" t-att-href="website.contact_max_url" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
                                                     <i class="fa fa-comment me-1"/> Написать в MAX
                                                 </a>
                                             </div>
